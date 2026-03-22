@@ -92,12 +92,15 @@ app.post('/api/email', async (req, res) => {
       ];
     }
 
-    await transporter.sendMail(mailOptions);
+    // Instantly process SMTP sending in the background without blocking the UI fetch request
+    transporter.sendMail(mailOptions)
+      .then(() => console.log(`Background email successfully dispatched: ${subject}`))
+      .catch((error: unknown) => console.error('Background email SMTP error:', error));
 
-    res.json({ success: true, message: 'Email sent successfully' });
-  } catch (error) {
-    console.error('Email error:', error);
-    res.status(500).json({ success: false, message: 'Failed to send email' });
+    res.json({ success: true, message: 'Email instantly queued' });
+  } catch (error: unknown) {
+    console.error('Email format error:', error);
+    res.status(500).json({ success: false, message: 'Failed to queue email' });
   }
 });
 
