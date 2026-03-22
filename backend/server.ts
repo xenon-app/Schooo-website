@@ -20,7 +20,7 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
 // Serve static frontend in production
-app.use(express.static(path.join(__dirname, '../../dist')));
+app.use(express.static(path.join(__dirname, '../dist')));
 
 // Email transporter (Gmail)
 const transporter = nodemailer.createTransport({
@@ -103,7 +103,7 @@ app.post('/api/email', async (req, res) => {
 
 // Catch-all for React Router
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../dist/index.html'));
+  res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
 app.listen(PORT, () => {
