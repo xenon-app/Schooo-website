@@ -2,16 +2,25 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import nodemailer from 'nodemailer';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 dotenv.config();
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
+
+// Setup directories for ES module
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Middleware
 app.use(cors());
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
+
+// Serve static frontend in production
+app.use(express.static(path.join(__dirname, '../../dist')));
 
 // Email transporter (Gmail)
 const transporter = nodemailer.createTransport({
@@ -92,8 +101,12 @@ app.post('/api/email', async (req, res) => {
   }
 });
 
+// Catch-all for React Router
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../dist/index.html'));
+});
+
 app.listen(PORT, () => {
-  console.log(`🚀 Email backend running on http://localhost:${PORT}`);
-  console.log(`📧 Check backend/.env for EMAIL_USER/EMAIL_PASS`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
 

@@ -31,7 +31,8 @@ const Contact = () => {
     setErrorMsg('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/email', {
+      const API_URL = import.meta.env.PROD ? '/api/email' : 'http://localhost:5000/api/email';
+      const response = await fetch(API_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

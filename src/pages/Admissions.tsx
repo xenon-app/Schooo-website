@@ -59,7 +59,8 @@ const Admissions = () => {
       // Remove the file from formData visualization since we send it properly
       delete data.files;
 
-      const response = await fetch('http://localhost:5000/api/email', {
+      const API_URL = import.meta.env.PROD ? '/api/email' : 'http://localhost:5000/api/email';
+      const response = await fetch(API_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
