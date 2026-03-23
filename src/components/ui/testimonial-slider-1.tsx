@@ -31,7 +31,7 @@ interface TestimonialSliderProps {
 export const TestimonialSlider = ({
   reviews,
   className,
-  title = "Leadership"
+  title = "Leadership Desk"
 }: TestimonialSliderProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   // 'direction' helps framer-motion understand slide direction (next vs. prev)
@@ -71,17 +71,6 @@ export const TestimonialSlider = ({
     }),
   };
 
-  const textVariants: Variants = {
-    enter: (direction: "left" | "right") => ({
-      x: direction === "right" ? 50 : -50,
-      opacity: 0,
-    }),
-    center: { x: 0, opacity: 1 },
-    exit: (direction: "left" | "right") => ({
-      x: direction === "right" ? -50 : 50,
-      opacity: 0,
-    }),
-  };
 
   return (
     <div
@@ -140,7 +129,7 @@ export const TestimonialSlider = ({
           <div className="mb-8">
             <div className="flex items-center gap-4 mb-4">
               <span className="w-8 h-[2px] bg-royal" />
-              <p className="text-royal font-black uppercase tracking-[0.4em] text-[10px] sm:text-xs leading-none">Leadership Desk</p>
+              <p className="text-royal font-black uppercase tracking-[0.4em] text-[10px] sm:text-xs leading-none">{title}</p>
             </div>
             
             <AnimatePresence mode="wait">
