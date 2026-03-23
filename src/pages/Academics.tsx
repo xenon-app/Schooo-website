@@ -33,13 +33,13 @@ const Academics = () => {
             transition={{ duration: 0.8 }}
             className="max-w-4xl"
           >
-            <p className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em] text-royal mb-4">Mind in Motion</p>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-[1.1] uppercase">
-              The <br />
-              <span className="text-royal underline decoration-4 decoration-royal/10 tracking-tight self-start">Academics</span>
+            <p className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em] text-royal mb-4">Educational Excellence</p>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-6 tracking-tighter leading-[1] uppercase">
+              Academics at <br />
+              <span className="text-royal underline decoration-4 decoration-royal/10 tracking-tight self-start">Adarsh Public School Murliganj</span>
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-blue-100/40 font-normal leading-[1.6] max-w-2xl mt-10 border-l-4 border-royal/20 pl-6">
-                Redefining the standard of holistic learning in the 21st century.
+                Play Group to Class 12 CBSE curriculum. Shaping future leaders in Murliganj with Science, Commerce, and Arts streams.
             </p>
           </motion.div>
         </div>
@@ -92,6 +92,16 @@ const Academics = () => {
                   <h3 className="text-3xl font-black text-white mb-8 tracking-tighter leading-none uppercase">{level.level}</h3>
                   <div className="w-12 h-1 bg-royal/10 rounded-full mb-10 group-hover:w-full transition-all" />
                   <p className="text-blue-100/40 text-sm font-medium uppercase tracking-widest mb-10 leading-relaxed italic">"{level.focus}"</p>
+                  
+                  {/* Specialized Streams for Higher Secondary */}
+                  {level.level.includes("Secondary") && (
+                    <div className="mb-8 flex flex-wrap gap-2">
+                       {['Science', 'Commerce', 'Arts'].map(stream => (
+                         <span key={stream} className="px-3 py-1 bg-royal text-white text-[10px] font-black uppercase tracking-widest rounded-full">{stream}</span>
+                       ))}
+                    </div>
+                  )}
+
                   <div className="flex flex-wrap gap-3">
                     {level.subjects.map(sub => (
                       <span key={sub} className="px-5 py-2.5 bg-white/5 rounded-xl text-white/40 font-semibold text-sm uppercase tracking-widest leading-none border border-white/5 group-hover:bg-royal/10 group-hover:text-royal transition-all">{sub}</span>

@@ -112,13 +112,13 @@ const Admissions = () => {
             transition={{ duration: 0.8 }}
             className="max-w-4xl"
           >
-            <p className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em] text-royal mb-4">Central Enrollment</p>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-[1.1] uppercase">
-              The <br />
-              <span className="text-royal underline decoration-4 decoration-royal/10 tracking-tight self-start">Admissions</span>
+            <p className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em] text-royal mb-4">Central Enrollment 2026-27</p>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-6 tracking-tighter leading-[1] uppercase">
+              Best School <br />
+              <span className="text-royal underline decoration-4 decoration-royal/10 tracking-tight self-start">Admission in Murliganj</span>
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-blue-100/40 font-normal leading-[1.6] max-w-2xl mt-10 border-l-4 border-royal/20 pl-6">
-              Your pathway to educational excellence starts here. Session {siteConfig.school.admissionYear} now open.
+              Start your child's journey at the <strong>top-ranked CBSE school in Murliganj</strong>. Our admission process for Session {siteConfig.school.admissionYear} is now open for Play School to Class 12.
             </p>
           </motion.div>
         </div>
@@ -222,8 +222,9 @@ const Admissions = () => {
             <div className="bg-navy p-12 md:p-24 rounded-[5rem] border border-white/5 relative overflow-hidden group">
               <div className="absolute inset-0 bg-white/[0.01] bg-[size:30px_30px] opacity-40 group-hover:scale-105 transition-transform" />
               <div className="relative z-10">
-                <h4 className="font-black text-white text-3xl mb-12 tracking-tighter uppercase leading-none opacity-40 group-hover:opacity-100 transition-opacity italic">Important Notes</h4>
+                <h4 className="font-black text-white text-3xl mb-12 tracking-tighter uppercase leading-none opacity-40 group-hover:opacity-100 transition-opacity italic">Important Notes & Scholarships</h4>
                 <ul className="space-y-10 pl-6 border-l-4 border-royal/10">
+                  <li className="text-royal font-black text-lg leading-relaxed italic border-b border-white/5 pb-6">Special 15% Scholarship for Murliganj & Madhepura local residents.</li>
                   {siteConfig.feeNotes.map((note, idx) => (
                     <li key={idx} className="text-blue-100/40 font-medium text-lg leading-relaxed italic border-b border-white/5 pb-6 last:border-0">{note}</li>
                   ))}

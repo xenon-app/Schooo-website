@@ -11,6 +11,8 @@ import Admissions from './pages/Admissions';
 import Campus from './pages/Campus';
 import Faculty from './pages/Faculty';
 import Contact from './pages/Contact';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 import NotFound from './pages/NotFound';
 import { LoadingScreen } from './components/LoadingScreen';
 import { useState, useEffect } from 'react';
@@ -83,6 +85,12 @@ function App() {
             
             {/* Contact */}
             <Route path="/contact" element={<Contact />} />
+
+            {/* Insights / Blog */}
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<BlogPost />} />
+            <Route path="/news" element={<Navigate to="/blog" replace />} />
+            <Route path="/insights" element={<Navigate to="/blog" replace />} />
 
             {/* Catch All */}
             <Route path="*" element={<NotFound />} />

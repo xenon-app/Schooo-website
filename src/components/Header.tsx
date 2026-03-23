@@ -78,10 +78,42 @@ const navMenu = [
     title: "Campus",
     url: "#",
     items: [
-      { title: "Campus Life", url: "/campus" },
-      { title: "Infrastructure & Disclosure", url: "/campus#infrastructure" },
-      { title: "Campus Gallery", url: "/campus#gallery" },
-      { title: "Rules & Regulations", url: "/campus#rules" },
+      { 
+        title: "Campus Life", 
+        description: "Living the APS Experience",
+        url: "/campus" 
+      },
+      { 
+        title: "Infrastructure", 
+        description: "World-Class Facilities",
+        url: "/campus#infrastructure" 
+      },
+      { 
+        title: "Campus Gallery", 
+        description: "Events & Memories",
+        url: "/campus#gallery" 
+      },
+      { 
+        title: "Rules & Regulations", 
+        description: "Conduct Guidelines",
+        url: "/campus#rules" 
+      },
+    ],
+  },
+  {
+    title: "Insights",
+    url: "#",
+    items: [
+      { 
+        title: "School Blog", 
+        description: "Latest Updates & Educational Tips",
+        url: "/blog" 
+      },
+      { 
+        title: "News & Events", 
+        description: "Campus Highlights",
+        url: "/campus#gallery" 
+      },
     ],
   },
 ];

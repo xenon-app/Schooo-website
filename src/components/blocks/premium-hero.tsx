@@ -9,6 +9,8 @@ import {
   Star
 } from 'lucide-react';
 
+import { siteConfig } from '@/config/site';
+
 interface PremiumHeroProps {
   onApply?: () => void;
   onContact?: () => void;
@@ -28,9 +30,9 @@ const PremiumHero = ({ onApply, onContact }: PremiumHeroProps) => {
   };
 
   const trustElements = [
-    { icon: ShieldCheck, label: "CBSE Affiliated", color: "text-blue-400" },
-    { icon: Users, label: "10,000+ Students", color: "text-emerald-400" },
-    { icon: Trophy, label: "25+ Years Excellence", color: "text-amber-400" }
+    { icon: ShieldCheck, label: siteConfig.school.affiliation, color: "text-blue-400" },
+    { icon: Users, label: "1,000+ Students", color: "text-emerald-400" },
+    { icon: Trophy, label: `${siteConfig.stats[3].value} Years Excellence`, color: "text-amber-400" }
   ];
 
   return (
@@ -108,20 +110,20 @@ const PremiumHero = ({ onApply, onContact }: PremiumHeroProps) => {
                 className="w-2 h-2 rounded-full bg-emerald-400"
               />
               <span className="text-sm font-bold uppercase tracking-[0.2em] text-white/60">
-                Admissions Open 2025–26
+                {siteConfig.hero.badge}
               </span>
             </motion.div>
 
             {/* Heading */}
-            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-8 tracking-tight leading-[1.05] uppercase relative">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-8 tracking-tighter leading-[1] uppercase relative">
               <span className="block overflow-hidden">
                 <motion.span
                   initial={{ y: "100%" }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className="block"
+                  className="block text-xl uppercase tracking-[0.5em] text-royal mb-4 font-black"
                 >
-                  Adarsh
+                  Best English Medium School in Murliganj
                 </motion.span>
               </span>
               <span className="block overflow-hidden">
@@ -129,19 +131,9 @@ const PremiumHero = ({ onApply, onContact }: PremiumHeroProps) => {
                   initial={{ y: "100%" }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  className="block bg-gradient-to-r from-royal to-blue-400 bg-clip-text text-transparent"
-                >
-                  Public
-                </motion.span>
-              </span>
-              <span className="block overflow-hidden">
-                <motion.span
-                  initial={{ y: "100%" }}
-                  animate={{ y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                   className="block"
                 >
-                  School
+                  {siteConfig.school.name}
                 </motion.span>
               </span>
               {/* Soft Glow */}
@@ -153,9 +145,9 @@ const PremiumHero = ({ onApply, onContact }: PremiumHeroProps) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="text-xl md:text-2xl text-white/50 mb-12 max-w-2xl leading-relaxed font-normal"
+              className="text-lg md:text-xl text-white/50 mb-12 max-w-2xl leading-relaxed font-medium uppercase tracking-[0.1em] border-l-4 border-royal/30 pl-8"
             >
-              Shaping future leaders with world-class education, innovation, and values.
+              {siteConfig.hero.description}
             </motion.p>
 
             {/* CTA Buttons */}

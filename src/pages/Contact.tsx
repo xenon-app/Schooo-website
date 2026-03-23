@@ -82,12 +82,12 @@ const Contact = () => {
             className="max-w-4xl"
           >
             <p className="text-royal font-bold uppercase tracking-[0.3em] text-[10px] sm:text-xs mb-4">Constant Support</p>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-[1.1] uppercase">
-              Get in <br />
-              <span className="text-royal underline decoration-4 decoration-royal/10 self-start">Touch</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-6 tracking-tighter leading-[1] uppercase">
+              Contact <br />
+              <span className="text-royal underline decoration-4 decoration-royal/10 self-start text-3xl sm:text-5xl">Best School in Murliganj</span>
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-blue-100/40 font-normal leading-[1.6] max-w-2xl mt-10 border-l-4 border-royal/20 pl-6">
-                Explore the future of education with us. Our doors are always open.
+                Looking for the top English medium school near you in Murliganj? Reach out today for 2026-27 admissions.
             </p>
           </motion.div>
         </div>
@@ -237,8 +237,8 @@ const Contact = () => {
         <div className="container mx-auto px-6 relative z-10">
            <div className="text-center max-w-4xl mx-auto mb-24">
               <p className="text-royal font-bold uppercase tracking-[0.3em] text-xs mb-6">Interactive Map</p>
-               <h3 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-10 tracking-tight uppercase leading-[1.1]">Find us <span className="text-royal underline decoration-4 decoration-royal/10">Easily</span></h3>
-              <p className="text-blue-100/40 text-lg font-medium uppercase tracking-[0.2em] leading-relaxed">Central Campus · Sitamarhi · Bihar</p>
+               <h3 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-10 tracking-tight uppercase leading-[1.1]">Visit Our <span className="text-royal underline decoration-4 decoration-royal/10">Murliganj Campus</span></h3>
+              <p className="text-blue-100/40 text-lg font-medium uppercase tracking-[0.2em] leading-relaxed">Central Campus · Murliganj · Madhepura</p>
            </div>
            
            <div className="w-full h-[400px] sm:h-[700px] rounded-[3rem] sm:rounded-[5rem] overflow-hidden border-8 sm:border-[15px] border-white/5 shadow-2xl relative group bg-navy">

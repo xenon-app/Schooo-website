@@ -11,17 +11,17 @@ export const siteConfig = {
   school: {
     name: "Adarsh Public School",
     shortName: "APS",
-    tagline: "Est. 1998 · CBSE Affiliated",
-    slogan: "Nurturing Excellence Since 1998",
+    tagline: "Best English Medium CBSE School in Murliganj, Bihar",
+    slogan: "Nurturing Excellence in Murliganj Since 1998",
     affiliation: "CBSE Affiliated",
     affiliationNo: "CBSE-AFF-XXXX",        // ← replace with real affiliation number
     founded: "1998",
-    location: "Sitamarhi, Bihar, India - 843302",
-    admissionYear: "2025-26",
+    location: "Murliganj, Madhepura District, Bihar 852122",
+    admissionYear: "2026-27",
     aboutShort:
-      "A pioneer in student-centric pedagogy in the heart of Bihar. We nurture the next generation of leaders through world-class education, holistic development, and strong values.",
+      "The top English medium school in Murliganj for Play School to Class 12. Committed to CBSE-aligned academic excellence and holistic child development in Madhepura, Bihar.",
     aboutLong:
-      "Established in 1998, Adarsh Public School has been a pioneer in student-centric pedagogy. We believe in holistic development, ensuring our students are not just exam-ready, but life-ready.",
+      "Established in 1998, Adarsh Public School Murliganj is a leader in modern education in Bihar. We provide 100% CBSE-affiliated curriculum with expert mentors and smart labs to prepare students for a bright future.",
     missionStatement:
       "Our mission is to create lifelong learners who are prepared for the future without losing their roots and values.",
     visionStatement:
@@ -32,8 +32,8 @@ export const siteConfig = {
   // ── 2. CONTACT INFORMATION ─────────────────────────────────
   contact: {
     phone: ["+91 97982 63469", "+91 97982 63469"],  // ← replace
-    email: ["info@adarshschool.edu.in", "admissions@adarshschool.edu.in"],
-    address: "Sitamarhi, Bihar, India - 843302",
+    email: ["info@demo-school.up.railway.app", "admissions@demo-school.up.railway.app"],
+    address: "Near Murliganj Police Station, Murliganj, Madhepura, Bihar 852122",
     officeHours: "Mon - Sat: 8:00 AM - 3:00 PM",
     whatsapp: "9798263469",   // ← replace (digits only, no +)
     // Paste a Google Maps embed <iframe src="..."> URL below:
@@ -53,11 +53,11 @@ export const siteConfig = {
 
   // ── 4. HERO SECTION ────────────────────────────────────────
   hero: {
-    badge: "Admissions Open 2025–26",
+    badge: "Admissions Open 2026–27",
     heading: "Adarsh Public School",
-    subheading: "Shape Your Future with Excellence",
+    subheading: "Best English Medium School in Murliganj",
     description:
-      "A pioneer in student-centric pedagogy in the heart of Bihar. We nurture the next generation of leaders through world-class education, holistic development, and strong values.",
+      "Empowering students through high-quality CBSE education, smart classrooms, and expert faculty for a successful future in Murliganj and beyond.",
     mediaSrc:
       "/Developer.png",
     cta: {

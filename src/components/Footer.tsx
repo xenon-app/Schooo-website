@@ -69,8 +69,8 @@ const Footer = () => {
             <ul className="space-y-6">
               {[
                 { name: 'About Adarsh', path: '/about' },
-                { name: 'Courses Offered', path: '/courses' },
-                { name: 'Admissions 2025', path: '/admissions' },
+                { name: 'Courses Offered', path: '/academics' },
+                { name: 'Admissions 2026-27', path: '/admissions' },
                 { name: 'Faculty Members', path: '/faculty' },
                 { name: 'Campus Life', path: '/campus' },
                 { name: 'Contact Desk', path: '/contact' }

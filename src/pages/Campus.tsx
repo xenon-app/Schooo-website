@@ -38,12 +38,12 @@ const Campus = () => {
             className="max-w-4xl"
           >
             <p className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em] text-royal mb-4">Space and Matter</p>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-[1.1] uppercase">
-              The <br />
-              <span className="text-royal underline decoration-4 decoration-royal/10 tracking-tight self-start">Campus</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-6 tracking-tighter leading-[1] uppercase">
+              World-Class <br />
+              <span className="text-royal underline decoration-4 decoration-royal/10 tracking-tight self-start">Facilities in Murliganj</span>
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-blue-100/40 font-normal leading-[1.6] max-w-3xl mt-10 border-l-4 border-royal/20 pl-6">
-                Redefining the standard of physical learning spaces in rural education.
+                Adarsh Public School offers the finest institutional infrastructure in Murliganj, Madhepura. Designed for safety, innovation, and global learning.
             </p>
           </motion.div>
         </div>
@@ -235,7 +235,7 @@ const Campus = () => {
                   >
                     <img src={selectedImage} className="max-w-full max-h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
                     <div className="absolute top-10 left-10 p-6 bg-navy/80 backdrop-blur-2xl border border-white/10 rounded-3xl">
-                        <p className="text-white font-black uppercase tracking-[0.5em] text-sm leading-none">Adarsh Public School · Sitamarhi</p>
+                        <p className="text-white font-black uppercase tracking-[0.5em] text-sm leading-none">Best School in Murliganj · Madhepura</p>
                     </div>
                   </motion.div>
                 </motion.div>
