@@ -86,54 +86,22 @@ export const TestimonialSlider = ({
   return (
     <div
       className={cn(
-        "relative w-full min-h-[600px] sm:min-h-[700px] overflow-hidden bg-navy text-white p-8 sm:p-20 md:p-32 border-y border-white/5",
+        "relative w-full overflow-hidden bg-navy text-white px-6 py-20 sm:p-24 md:p-32 border-y border-white/5",
         className
       )}
     >
-      {/* Decorative Blur */}
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-royal opacity-[0.03] rounded-full blur-[140px] z-0" />
-      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-40 h-40 bg-white opacity-[0.02] blur-[100px] z-0" />
+      {/* Dynamic Background Accents */}
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-royal opacity-[0.05] rounded-full blur-[140px] z-0" />
+      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-royal opacity-[0.02] rounded-full blur-[120px] z-0" />
 
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-16 h-full relative z-10">
-        {/* === Left Column: Meta and Thumbnails === */}
-        <div className="md:col-span-3 flex flex-col justify-between items-start">
-          <div className="flex flex-col space-y-8">
-            {/* Pagination */}
-            <span className="text-sm text-royal font-bold uppercase tracking-widest leading-none">
-              {String(currentIndex + 1).padStart(2, "0")} /{" "}
-              {String(reviews.length).padStart(2, "0")}
-            </span>
-            {/* Vertical "Reviews" Text */}
-            <h2 className="text-xs font-bold tracking-[0.4em] uppercase [writing-mode:vertical-rl] md:rotate-180 hidden md:block opacity-20 whitespace-nowrap">
-              {title}
-            </h2>
-          </div>
-
-          {/* Thumbnail Navigation */}
-          <div className="flex space-x-4 mt-8 md:mt-0 overflow-x-auto no-scrollbar pb-4 md:pb-0 w-full">
-            {thumbnailReviews.map((review) => {
-              const originalIndex = reviews.findIndex((r) => r.id === review.id);
-              return (
-                <button
-                  key={review.id}
-                  onClick={() => handleThumbnailClick(originalIndex)}
-                  className="overflow-hidden rounded-2xl w-16 h-20 md:w-24 md:h-32 opacity-20 grayscale border-2 border-transparent hover:border-royal/50 hover:opacity-100 hover:grayscale-0 transition-all duration-700"
-                >
-                  <img
-                    src={review.thumbnailSrc}
-                    alt={review.name}
-                    className="w-full h-full object-cover"
-                  />
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* === Center Column: Main Image === */}
-        <div className="md:col-span-4 relative h-full min-h-[400px] md:min-h-[600px]">
-           <Quote size={120} className="absolute -top-16 -left-16 text-white/5 rotate-[-12deg] z-0" />
-          <AnimatePresence initial={false} custom={direction}>
+      <div className="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row gap-12 lg:gap-24 items-center">
+        
+        {/* === Left: Main Image Display === */}
+        <div className="w-full lg:w-5/12 relative aspect-[4/5] sm:aspect-square lg:aspect-[4/5] group">
+          {/* Quotes behind image */}
+          <Quote size={120} className="absolute -top-12 -left-12 text-white/5 rotate-[-12deg] z-0 lg:block hidden" />
+          
+          <AnimatePresence initial={false} custom={direction} mode="wait">
             <motion.div
                key={currentIndex}
                custom={direction}
@@ -141,69 +109,89 @@ export const TestimonialSlider = ({
                initial="enter"
                animate="center"
                exit="exit"
-               transition={{ duration: 0.8, ease: "easeOut" }}
-               className="absolute inset-0 w-full h-full rounded-[4rem] overflow-hidden border-8 border-white/5 shadow-2xl"
+               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+               className="absolute inset-0 w-full h-full rounded-[2.5rem] sm:rounded-[4rem] overflow-hidden border-4 sm:border-8 border-white/5 shadow-2xl"
             >
               <img
                 src={activeReview.imageSrc}
                 alt={activeReview.name}
-                className="w-full h-full object-cover grayscale brightness-75 hover:grayscale-0 hover:brightness-100 transition-all duration-1000 scale-105"
+                className="w-full h-full object-cover grayscale brightness-90 hover:grayscale-0 hover:brightness-100 transition-all duration-1000"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy to-transparent opacity-40" />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent" />
             </motion.div>
           </AnimatePresence>
+
+          {/* Navigation Overlay for Mobile */}
+          <div className="absolute bottom-6 inset-x-6 flex items-center justify-between lg:hidden z-20">
+             <div className="flex gap-2">
+               {reviews.map((_, i) => (
+                 <div key={i} className={cn("w-2 h-2 rounded-full transition-all", i === currentIndex ? "w-6 bg-royal" : "bg-white/20")} />
+               ))}
+             </div>
+             <div className="flex gap-4">
+                <button onClick={handlePrev} className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/10 shadow-xl"><ArrowLeft size={18} /></button>
+                <button onClick={handleNext} className="w-10 h-10 rounded-full bg-royal flex items-center justify-center shadow-xl shadow-royal/20"><ArrowRight size={18} /></button>
+             </div>
+          </div>
         </div>
 
-        {/* === Right Column: Text and Navigation === */}
-        <div className="md:col-span-5 flex flex-col justify-center gap-8 md:gap-12 md:pl-16 relative">
-          {/* Text Content */}
-          <div className="relative overflow-hidden pt-8 md:pt-0 min-h-[400px] sm:min-h-[350px]">
-            <AnimatePresence initial={false} custom={direction} mode="wait">
+        {/* === Right: Text Content === */}
+        <div className="w-full lg:w-7/12 flex flex-col items-start lg:pl-12 text-start">
+          <div className="mb-8">
+            <div className="flex items-center gap-4 mb-4">
+              <span className="w-8 h-[2px] bg-royal" />
+              <p className="text-royal font-black uppercase tracking-[0.4em] text-[10px] sm:text-xs leading-none">Leadership Desk</p>
+            </div>
+            
+            <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
-                custom={direction}
-                variants={textVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="space-y-12"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.5 }}
               >
-                <div>
-                    <p className="text-royal font-bold uppercase tracking-[0.3em] text-xs mb-4">Leadership Desk</p>
-                    <h3 className="text-4xl font-bold text-white uppercase tracking-tight leading-none mb-4">
-                      {activeReview.name}
-                    </h3>
-                    <p className="text-blue-100/40 text-xs font-bold uppercase tracking-[0.4em] leading-none mb-12">
-                      {activeReview.affiliation}
-                    </p>
-                </div>
+                <h3 className="text-3xl sm:text-5xl md:text-7xl font-black text-white uppercase tracking-tighter leading-none mb-4">
+                  {activeReview.name}
+                </h3>
+                <p className="text-white/40 text-xs sm:text-sm font-black uppercase tracking-[0.4em] leading-none mb-10">
+                  {activeReview.affiliation}
+                </p>
                 
-                <blockquote className="text-2xl sm:text-3xl md:text-5xl font-medium leading-[1.2] sm:leading-[1.1] tracking-tighter text-blue-100/60 border-l-[6px] sm:border-l-[12px] border-royal/10 pl-6 sm:pl-12 py-4 italic">
+                <blockquote className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-medium leading-[1.3] text-blue-100/60 border-l-4 sm:border-l-8 border-royal/20 pl-6 sm:pl-10 italic py-2">
                   "{activeReview.quote}"
                 </blockquote>
               </motion.div>
             </AnimatePresence>
           </div>
 
-          {/* Navigation Buttons */}
-          <div className="flex items-center space-x-6 mt-12">
-            <Button
-              variant="outline"
-              size="icon"
-              className="w-16 h-16"
-              onClick={handlePrev}
-            >
-              <ArrowLeft size={24} />
-            </Button>
-            <Button
-              variant="default"
-              size="icon"
-              className="w-16 h-16"
-              onClick={handleNext}
-            >
-              <ArrowRight size={24} />
-            </Button>
+          {/* Desktop Navigation & Meta */}
+          <div className="lg:flex hidden items-center justify-between w-full mt-12 pt-12 border-t border-white/5">
+             <div className="flex gap-12">
+               <div>
+                  <p className="text-[10px] font-bold text-white/20 uppercase tracking-[0.3em] mb-3">Principal</p>
+                  <p className="text-sm font-black text-white uppercase tracking-widest leading-none">Desk 0{currentIndex + 1}</p>
+               </div>
+               <div className="flex gap-3">
+                 {thumbnailReviews.map((review) => {
+                    const originalIndex = reviews.findIndex((r) => r.id === review.id);
+                    return (
+                      <button
+                        key={review.id}
+                        onClick={() => handleThumbnailClick(originalIndex)}
+                        className="w-12 h-12 rounded-xl border border-white/5 opacity-40 hover:opacity-100 transition-all overflow-hidden"
+                      >
+                        <img src={review.thumbnailSrc} className="w-full h-full object-cover grayscale hover:grayscale-0" />
+                      </button>
+                    )
+                 })}
+               </div>
+             </div>
+
+             <div className="flex gap-4">
+                <Button variant="outline" size="icon" className="w-16 h-16 rounded-[1.5rem]" onClick={handlePrev}><ArrowLeft size={24} /></Button>
+                <Button variant="default" size="icon" className="w-16 h-16 rounded-[1.5rem]" onClick={handleNext}><ArrowRight size={24} /></Button>
+             </div>
           </div>
         </div>
       </div>

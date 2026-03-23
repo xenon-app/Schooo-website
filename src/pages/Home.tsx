@@ -113,38 +113,45 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Statistics Section */}
-      <section className="bg-navy py-12 sm:py-40 relative">
-        {/* Subtle background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-royal opacity-[0.02] rounded-full blur-[120px] pointer-events-none" />
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-12">
+      {/* Statistics Section - Ultra Premium */}
+      <section className="bg-navy py-12 sm:py-32 relative">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12">
             {siteConfig.stats.map((stat, i) => {
               const Icon = statIcons[i];
               return (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.1, duration: 0.5 }}
-                  className="bg-white/5 backdrop-blur-3xl border border-white/5 p-8 sm:p-12 rounded-[2rem] sm:rounded-[4rem] text-center group hover:bg-white/10 transition-all relative overflow-hidden"
+                  transition={{ delay: i * 0.1 }}
+                  className="group relative"
                 >
-                  {/* Hover Accent */}
-                  <div className="absolute inset-x-0 bottom-0 h-1.5 bg-royal scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500" />
+                  {/* Outer Glow Effect */}
+                  <div className="absolute -inset-1 bg-royal/10 rounded-[3rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
                   
-                  <div className="w-14 h-14 sm:w-20 sm:h-20 bg-white/5 rounded-2xl flex items-center justify-center text-royal mx-auto mb-6 sm:mb-8 border border-white/10 group-hover:bg-royal group-hover:text-white transition-all shadow-xl">
-                    <Icon size={28} className="sm:w-10 sm:h-10 transition-transform group-hover:scale-110" />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <h3 className="text-4xl sm:text-6xl font-black text-white tabular-nums tracking-tighter leading-none bg-gradient-to-br from-white to-white/60 bg-clip-text">
-                      {stat.value}
-                    </h3>
-                    <p className="text-[10px] sm:text-xs font-bold text-blue-100/40 uppercase tracking-[0.3em] leading-tight max-w-[14ch] mx-auto">
-                      {stat.label}
-                    </p>
+                  <div className="relative h-full bg-[#030712] border border-white/5 rounded-[3rem] p-8 sm:p-10 text-center flex flex-col items-center justify-center transition-all duration-500 hover:border-royal/30 hover:-translate-y-2 overflow-hidden">
+                    {/* Corner Accent */}
+                    <div className="absolute bottom-0 right-0 w-24 h-24 bg-royal/10 rounded-tl-[4rem] group-hover:bg-royal/20 transition-all blur-3xl opacity-50" />
+                    
+                    {/* Icon Bubble */}
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/5 rounded-[2rem] flex items-center justify-center text-royal mb-8 border border-white/10 group-hover:scale-110 transition-transform shadow-2xl relative z-10">
+                      <Icon size={32} strokeWidth={1.5} />
+                    </div>
+
+                    <div className="relative z-10">
+                      <h3 className="text-5xl sm:text-6xl font-black text-white tabular-nums tracking-tighter leading-none mb-3">
+                        {stat.value}
+                      </h3>
+                      <div className="h-1 w-12 bg-royal/20 mx-auto rounded-full mb-4 group-hover:w-16 group-hover:bg-royal/50 transition-all" />
+                      <p className="text-[10px] sm:text-xs font-bold text-white/40 uppercase tracking-[0.4em] leading-tight max-w-[15ch] mx-auto group-hover:text-white/60 transition-colors">
+                        {stat.label}
+                      </p>
+                    </div>
+
+                    {/* Bottom Curved Accent */}
+                    <div className="absolute -bottom-1 inset-x-12 h-2 bg-gradient-to-r from-transparent via-royal to-transparent blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
                 </motion.div>
               );

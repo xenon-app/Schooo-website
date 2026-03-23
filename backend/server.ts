@@ -93,15 +93,29 @@ app.post('/api/email', async (req, res) => {
       ];
     }
 
-    // Instantly process SMTP sending in the background without blocking the UI fetch request
-    transporter.sendMail(mailOptions)
-      .then(() => console.log(`Background email successfully dispatched: ${subject}`))
-      .catch((error: unknown) => console.error('Background email SMTP error:', error));
+    // Validate SMTP credentials
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      console.error('SMTP Error: EMAIL_USER or EMAIL_PASS not set in environment variables');
+      return res.status(500).json({ 
+        success: false, 
+        message: 'Email server configuration missing. Please set EMAIL_USER and EMAIL_PASS.' 
+      });
+    }
 
-    res.json({ success: true, message: 'Email instantly queued' });
-  } catch (error: unknown) {
-    console.error('Email format error:', error);
-    res.status(500).json({ success: false, message: 'Failed to queue email' });
+    try {
+      await transporter.sendMail(mailOptions);
+      console.log(`Email successfully sent: ${subject}`);
+      res.json({ success: true, message: 'Inquiry successfully submitted' });
+    } catch (smtpError: any) {
+      console.error('SMTP Error:', smtpError);
+      res.status(500).json({ 
+        success: false, 
+        message: 'SMTP Failure: ' + (smtpError.message || 'Check your Gmail App Password and variables.')
+      });
+    }
+  } catch (error: any) {
+    console.error('Internal server error:', error);
+    res.status(500).json({ success: false, message: 'Internal Server Error' });
   }
 });
 

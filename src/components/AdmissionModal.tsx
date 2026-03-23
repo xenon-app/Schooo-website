@@ -15,6 +15,14 @@ const AdmissionModal: FC<AdmissionModalProps> = ({ isOpen, onClose }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   const [selectedGrade, setSelectedGrade] = useState('');
+  const [selectedFileName, setSelectedFileName] = useState('');
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setSelectedFileName(file.name);
+    }
+  };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -189,10 +197,22 @@ const AdmissionModal: FC<AdmissionModalProps> = ({ isOpen, onClose }) => {
                       <div className="space-y-2">
                         <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-100/20 ml-2">Documents (Optional)</label>
                         <div className="relative group/up cursor-pointer">
-                          <input type="file" name="files" className="absolute inset-0 opacity-0 cursor-pointer z-20" />
-                          <div className="w-full bg-white/5 border border-white/10 border-dashed rounded-xl px-5 py-4 flex items-center justify-center gap-3 group-hover/up:border-royal group-hover/up:bg-white/10 transition-all">
-                            <Upload size={16} className="text-royal/40 group-hover/up:text-royal" />
-                            <span className="text-[10px] font-bold text-blue-100/20 group-hover/up:text-white uppercase tracking-widest">Attach Files</span>
+                          <input type="file" name="files" onChange={handleFileChange} className="absolute inset-0 opacity-0 cursor-pointer z-20" />
+                          <div className={cn(
+                            "w-full bg-white/5 border border-white/10 border-dashed rounded-xl px-5 py-4 flex flex-col sm:flex-row items-center justify-center gap-3 group-hover/up:border-royal group-hover/up:bg-white/10 transition-all",
+                            selectedFileName && "border-royal/50 bg-royal/5"
+                          )}>
+                            <div className="flex items-center gap-3">
+                              <Upload size={16} className={cn("text-royal/40 group-hover/up:text-royal", selectedFileName && "text-royal")} />
+                              <span className="text-[10px] font-bold text-blue-100/20 group-hover/up:text-white uppercase tracking-widest whitespace-nowrap">
+                                {selectedFileName ? 'Change File' : 'Attach Files'}
+                              </span>
+                            </div>
+                            {selectedFileName && (
+                              <div className="flex items-center gap-2 bg-royal/20 px-3 py-1 rounded-full border border-royal/30 max-w-full overflow-hidden">
+                                <span className="text-[10px] font-bold text-royal truncate max-w-[150px]">{selectedFileName}</span>
+                              </div>
+                            )}
                           </div>
                         </div>
                       </div>
