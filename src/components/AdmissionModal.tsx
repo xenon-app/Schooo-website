@@ -2,7 +2,7 @@ import { useState } from 'react';
 import type { FormEvent, FC } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { ApiResponse } from '../types/api.ts';
-import { X, Send, GraduationCap, CheckCircle2, Star, Upload, User, Phone, Mail, MapPin, Briefcase } from 'lucide-react';
+import { X, Send, GraduationCap, CheckCircle2, Upload, User, Phone, Mail, MapPin, Briefcase } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface AdmissionModalProps {
@@ -167,7 +167,6 @@ const AdmissionModal: FC<AdmissionModalProps> = ({ isOpen, onClose }) => {
                         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
                           {['Nursery', 'LKG', 'UKG', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'].map((grade) => {
                             const isSelected = selectedGrade === grade;
-                            const fullGrade = isNaN(Number(grade)) ? grade : `Class ${grade}`;
                             return (
                               <button
                                 key={grade}
