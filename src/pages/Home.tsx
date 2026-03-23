@@ -114,25 +114,38 @@ const Home = () => {
       </section>
 
       {/* Statistics Section */}
-      <section className="bg-navy py-24 sm:py-40 relative">
+      <section className="bg-navy py-12 sm:py-40 relative">
+        {/* Subtle background glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-royal opacity-[0.02] rounded-full blur-[120px] pointer-events-none" />
+        
         <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-12">
             {siteConfig.stats.map((stat, i) => {
               const Icon = statIcons[i];
               return (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="bg-white/5 backdrop-blur-xl border border-white/10 p-12 rounded-[3.5rem] text-center group hover:bg-white/10 transition-all border-b-8 border-b-royal"
+                  transition={{ delay: i * 0.1, duration: 0.5 }}
+                  className="bg-white/5 backdrop-blur-3xl border border-white/5 p-8 sm:p-12 rounded-[2rem] sm:rounded-[4rem] text-center group hover:bg-white/10 transition-all relative overflow-hidden"
                 >
-                  <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-royal mx-auto mb-8 border border-white/10 group-hover:bg-royal group-hover:text-white transition-all">
-                    <Icon size={32} />
+                  {/* Hover Accent */}
+                  <div className="absolute inset-x-0 bottom-0 h-1.5 bg-royal scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500" />
+                  
+                  <div className="w-14 h-14 sm:w-20 sm:h-20 bg-white/5 rounded-2xl flex items-center justify-center text-royal mx-auto mb-6 sm:mb-8 border border-white/10 group-hover:bg-royal group-hover:text-white transition-all shadow-xl">
+                    <Icon size={28} className="sm:w-10 sm:h-10 transition-transform group-hover:scale-110" />
                   </div>
-                  <h3 className="text-4xl md:text-5xl font-bold text-white mb-2 tabular-nums tracking-tight leading-none">{stat.value}</h3>
-                  <p className="text-[10px] font-bold text-blue-100/30 uppercase tracking-[0.2em]">{stat.label}</p>
+                  
+                  <div className="space-y-2">
+                    <h3 className="text-4xl sm:text-6xl font-black text-white tabular-nums tracking-tighter leading-none bg-gradient-to-br from-white to-white/60 bg-clip-text">
+                      {stat.value}
+                    </h3>
+                    <p className="text-[10px] sm:text-xs font-bold text-blue-100/40 uppercase tracking-[0.3em] leading-tight max-w-[14ch] mx-auto">
+                      {stat.label}
+                    </p>
+                  </div>
                 </motion.div>
               );
             })}
