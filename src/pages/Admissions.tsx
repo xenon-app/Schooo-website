@@ -93,7 +93,7 @@ const Admissions = () => {
   return (
     <div className="min-h-screen bg-navy text-white pt-[100px]">
       {/* Page Hero */}
-      <section className="relative h-[80vh] flex flex-col justify-center overflow-hidden bg-navy">
+      <section className="relative h-[60vh] sm:h-[80vh] flex flex-col justify-center overflow-hidden bg-navy">
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1541339907198-e08756ebafe3?q=80&w=2070&auto=format&fit=crop"
@@ -112,12 +112,12 @@ const Admissions = () => {
             transition={{ duration: 0.8 }}
             className="max-w-4xl"
           >
-            <p className="text-royal font-bold uppercase tracking-[0.3em] text-xs mb-4">Central Enrollment</p>
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-[1.1] uppercase">
+            <p className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em] text-royal mb-4">Central Enrollment</p>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-[1.1] uppercase">
               The <br />
               <span className="text-royal underline decoration-4 decoration-royal/10 tracking-tight self-start">Admissions</span>
             </h1>
-            <p className="text-lg md:text-xl text-blue-100/40 font-normal leading-[1.6] max-w-2xl mt-10 border-l-4 border-royal/20 pl-6">
+            <p className="text-base sm:text-lg md:text-xl text-blue-100/40 font-normal leading-[1.6] max-w-2xl mt-10 border-l-4 border-royal/20 pl-6">
               Your pathway to educational excellence starts here. Session {siteConfig.school.admissionYear} now open.
             </p>
           </motion.div>
@@ -125,7 +125,7 @@ const Admissions = () => {
       </section>
 
       {/* 1. ELIGIBILITY & PROCESS SECTION */}
-      <section id="process" className="py-32 bg-navy border-t border-white/5">
+      <section id="process" className="py-24 sm:py-32 bg-navy border-t border-white/5">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-24 items-start">
             <motion.div
@@ -134,17 +134,17 @@ const Admissions = () => {
               viewport={{ once: true }}
             >
               <div className="md:sticky md:top-[120px]">
-                <p className="text-royal font-bold uppercase tracking-[0.3em] text-xs mb-4">Session {siteConfig.school.admissionYear}</p>
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-10 tracking-tight uppercase leading-[1.1]">Admission <br /><span className="text-royal underline decoration-4 decoration-royal/10">Process</span></h2>
+                 <p className="text-royal font-bold uppercase tracking-[0.3em] text-[10px] sm:text-xs mb-4">Session {siteConfig.school.admissionYear}</p>
+                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-10 tracking-tight uppercase leading-[1.1]">Admission <br /><span className="text-royal underline decoration-4 decoration-royal/10">Process</span></h2>
                 <div className="space-y-12 pl-6 border-l-4 border-royal/10">
-                  {siteConfig.admissionSteps.map((step, idx) => (
-                    <div key={idx} className="flex gap-8 group">
-                      <div className="w-16 h-16 bg-white/[0.03] border border-white/5 text-royal rounded-2xl flex items-center justify-center font-black text-2xl group-hover:bg-royal group-hover:text-white transition-all shrink-0">
+                   {siteConfig.admissionSteps.map((step, idx) => (
+                    <div key={idx} className="flex flex-col sm:flex-row gap-6 sm:gap-8 group">
+                      <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white/[0.03] border border-white/5 text-royal rounded-2xl flex items-center justify-center font-black text-xl sm:text-2xl group-hover:bg-royal group-hover:text-white transition-all shrink-0">
                         {idx + 1}
                       </div>
                       <div>
-                        <h4 className="text-2xl font-black text-white mb-2 uppercase tracking-tight">{step.title}</h4>
-                        <p className="text-blue-100/30 text-lg leading-relaxed font-medium mb-1">{step.desc}</p>
+                        <h4 className="text-xl sm:text-2xl font-black text-white mb-2 uppercase tracking-tight">{step.title}</h4>
+                        <p className="text-blue-100/30 text-base sm:text-lg leading-relaxed font-medium mb-1">{step.desc}</p>
                       </div>
                     </div>
                   ))}
@@ -153,11 +153,11 @@ const Admissions = () => {
             </motion.div>
 
             <div className="space-y-12">
-              <div className="bg-white/[0.03] p-16 rounded-[4.5rem] border border-white/5 group hover:bg-white/10 transition-all">
-                <div className="w-20 h-20 bg-white/5 rounded-3xl flex items-center justify-center text-royal border border-white/10 mb-12 shadow-2xl group-hover:rotate-12 transition-transform">
-                  <Calendar size={40} />
+               <div className="bg-white/[0.03] p-8 sm:p-16 rounded-[3rem] sm:rounded-[4.5rem] border border-white/5 group hover:bg-white/10 transition-all">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/5 rounded-3xl flex items-center justify-center text-royal border border-white/10 mb-8 sm:mb-12 shadow-2xl group-hover:rotate-12 transition-transform">
+                  <Calendar size={32} className="sm:w-10 sm:h-10" />
                 </div>
-                <h3 className="text-4xl font-black text-white mb-10 tracking-tighter uppercase leading-none">Eligibility Criteria</h3>
+                <h3 className="text-3xl sm:text-4xl font-black text-white mb-8 sm:mb-10 tracking-tighter uppercase leading-none">Eligibility Criteria</h3>
                 <div className="space-y-6">
                   {siteConfig.admissionEligibility.map((item, idx) => (
                     <div key={idx} className="flex justify-between items-center bg-white/5 p-8 rounded-[2rem] border border-white/5 group/row hover:bg-royal transition-all">
@@ -168,11 +168,11 @@ const Admissions = () => {
                 </div>
               </div>
 
-              <div className="bg-white/[0.03] p-16 rounded-[4.5rem] border border-white/5 group hover:bg-white/10 transition-all border-b-8 border-b-royal">
-                <div className="w-20 h-20 bg-white/5 rounded-3xl flex items-center justify-center text-royal border border-white/10 mb-12 shadow-2xl group-hover:rotate-[-12deg] transition-transform">
-                  <ClipboardCheck size={40} />
+               <div className="bg-white/[0.03] p-8 sm:p-16 rounded-[3rem] sm:rounded-[4.5rem] border border-white/5 group hover:bg-white/10 transition-all border-b-8 border-b-royal">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/5 rounded-3xl flex items-center justify-center text-royal border border-white/10 mb-8 sm:mb-12 shadow-2xl group-hover:rotate-[-12deg] transition-transform">
+                  <ClipboardCheck size={32} className="sm:w-10 sm:h-10" />
                 </div>
-                <h3 className="text-4xl font-black text-white mb-10 tracking-tighter uppercase leading-none">Required Documents</h3>
+                <h3 className="text-3xl sm:text-4xl font-black text-white mb-8 sm:mb-10 tracking-tighter uppercase leading-none">Required Documents</h3>
                 <ul className="space-y-8 pl-10 border-l-4 border-royal/10">
                   {siteConfig.admissionDocuments.map((doc, idx) => (
                     <li key={idx} className="text-blue-100/40 font-medium text-lg flex items-center gap-4 italic border-b border-white/5 pb-6 last:border-0 leading-none">
@@ -187,12 +187,12 @@ const Admissions = () => {
       </section>
 
       {/* 2. FEE STRUCTURE SECTION */}
-      <section id="fees" className="py-32 bg-[#030712]">
+      <section id="fees" className="py-24 sm:py-32 bg-[#030712]">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-12 mb-24">
             <div className="max-w-4xl">
-              <p className="text-royal font-bold uppercase tracking-[0.3em] text-xs mb-4">Financial Transparency</p>
-              <h3 className="text-4xl md:text-5xl font-bold text-white mb-10 tracking-tight uppercase leading-[1.1]">Fee <br /><span className="text-royal underline decoration-4 decoration-royal/10">Structure</span></h3>
+               <p className="text-royal font-bold uppercase tracking-[0.3em] text-[10px] sm:text-xs mb-4">Financial Transparency</p>
+               <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-10 tracking-tight uppercase leading-[1.1]">Fee <br /><span className="text-royal underline decoration-4 decoration-royal/10">Structure</span></h3>
               <p className="text-blue-100/40 text-xl font-medium uppercase tracking-widest pl-6 border-l-4 border-royal/10 mb-1">Session {siteConfig.school.admissionYear} Official Scale</p>
             </div>
             <div className="flex items-center gap-4 px-10 py-6 bg-white/[0.03] border border-white/5 rounded-full text-white font-semibold text-base uppercase tracking-widest leading-none">
@@ -253,17 +253,17 @@ const Admissions = () => {
       </section>
 
       {/* 3. APPLICATION INQUIRY SECTION */}
-      <section id="apply" className="py-32 bg-navy">
+      <section id="apply" className="py-24 sm:py-32 bg-navy">
         <div className="container mx-auto px-6">
-          <div className="bg-[#030712] p-8 md:p-20 rounded-[5rem] border border-white/5 relative overflow-hidden group shadow-[0_50px_100px_-20px_rgba(0,0,0,0.8)]">
+           <div className="bg-[#030712] p-8 sm:p-20 rounded-[3rem] sm:rounded-[5rem] border border-white/5 relative overflow-hidden group shadow-[0_50px_100px_-20px_rgba(0,0,0,0.8)]">
             <div className="absolute top-0 right-0 w-96 h-96 bg-royal opacity-[0.02] rounded-bl-full blur-[100px]" />
 
             <div className="flex flex-col md:flex-row gap-16 items-start">
               {/* Form Left Side: Information */}
               <div className="max-w-md space-y-8">
                 <div>
-                  <p className="text-royal font-bold uppercase tracking-[0.3em] text-xs mb-4">Admission Desk</p>
-                  <h3 className="text-4xl md:text-5xl font-bold text-white mb-8 tracking-tight uppercase leading-[1.1]">Inquiry <br /><span className="text-royal underline decoration-4 decoration-royal/10">Form</span></h3>
+                   <p className="text-royal font-bold uppercase tracking-[0.3em] text-[10px] sm:text-xs mb-4">Admission Desk</p>
+                   <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8 tracking-tight uppercase leading-[1.1]">Inquiry <br /><span className="text-royal underline decoration-4 decoration-royal/10">Form</span></h3>
                   <p className="text-blue-100/30 text-lg font-medium leading-relaxed italic border-l-4 border-royal/10 pl-6">
                     "Submit your details for a priority evaluation. Our admissions team handles every inquiry with academic precision."
                   </p>

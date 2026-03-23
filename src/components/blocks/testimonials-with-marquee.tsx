@@ -21,16 +21,16 @@ export function TestimonialsSection({
   return (
     <section className={cn(
       "bg-navy text-white overflow-hidden",
-      "py-40 px-0",
+      "py-24 sm:py-40 px-0",
       className
     )}>
-      <div className="mx-auto flex flex-col items-center gap-24 text-center">
-        <div className="flex flex-col items-center gap-8 px-6 max-w-4xl">
-          <p className="text-royal font-bold uppercase tracking-[0.3em] text-xs mb-[-1rem]">Community Pulse</p>
-          <h2 className="text-4xl md:text-6xl font-bold leading-[1.1] tracking-tight uppercase">
+      <div className="mx-auto flex flex-col items-center gap-16 sm:gap-24 text-center">
+        <div className="flex flex-col items-center gap-6 sm:gap-8 px-6 max-w-4xl text-center">
+          <p className="text-royal font-bold uppercase tracking-[0.3em] text-[10px] sm:text-xs sm:mb-[-1rem]">Community Pulse</p>
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-[1.1] tracking-tight uppercase">
             {title}
           </h2>
-          <p className="text-lg md:text-xl font-medium text-blue-100/30 uppercase tracking-[0.2em] leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl font-medium text-blue-100/30 uppercase tracking-[0.2em] leading-relaxed">
             {description}
           </p>
         </div>

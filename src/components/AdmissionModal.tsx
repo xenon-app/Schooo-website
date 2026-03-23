@@ -3,6 +3,7 @@ import type { FormEvent, FC } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { ApiResponse } from '../types/api.ts';
 import { X, Send, GraduationCap, CheckCircle2, Star, Upload, User, Phone, Mail, MapPin, Briefcase } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 interface AdmissionModalProps {
   isOpen: boolean;
@@ -13,6 +14,7 @@ const AdmissionModal: FC<AdmissionModalProps> = ({ isOpen, onClose }) => {
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
+  const [selectedGrade, setSelectedGrade] = useState('');
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -88,35 +90,35 @@ const AdmissionModal: FC<AdmissionModalProps> = ({ isOpen, onClose }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-navy/95 backdrop-blur-3xl z-[110]"
+            className="fixed inset-0 bg-navy/95 backdrop-blur-3xl z-[300]"
           />
 
-          <div className="fixed inset-0 flex items-center justify-center p-4 z-[120] pointer-events-none">
+          <div className="fixed inset-0 flex items-center justify-center p-4 z-[310] pointer-events-none">
             <motion.div 
               initial={{ scale: 0.9, opacity: 0, y: 30 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 30 }}
-              className="bg-[#030712] w-full max-w-3xl rounded-[3rem] overflow-hidden shadow-[0_100px_200px_-50px_rgba(3,7,18,1)] pointer-events-auto relative border border-white/10"
+              className="bg-[#030712] w-full h-full sm:h-auto sm:max-w-3xl sm:rounded-[3rem] overflow-hidden shadow-[0_100px_200px_-50px_rgba(3,7,18,1)] pointer-events-auto relative border-t sm:border border-white/10"
             >
               <button 
                 onClick={onClose}
-                className="absolute top-6 right-6 p-2 bg-white/5 hover:bg-royal hover:text-white rounded-xl transition-all z-10 group border border-white/10"
+                className="absolute top-4 right-4 sm:top-6 sm:right-6 p-3 sm:p-2 bg-white/5 hover:bg-royal hover:text-white rounded-xl transition-all z-[130] group border border-white/10"
               >
-                <X size={20} className="group-hover:rotate-90 transition-transform opacity-40 group-hover:opacity-100" />
+                <X size={24} className="group-hover:rotate-90 transition-transform opacity-40 group-hover:opacity-100 sm:w-5 sm:h-5" />
               </button>
 
               {step === 1 ? (
-                <div className="p-8 md:p-12 relative overflow-hidden max-h-[90vh] overflow-y-auto no-scrollbar">
+                <div className="p-6 sm:p-8 md:p-12 relative overflow-hidden h-full sm:h-auto sm:max-h-[90vh] overflow-y-auto no-scrollbar">
                    <div className="absolute top-0 right-0 w-48 h-48 bg-royal opacity-[0.03] rounded-bl-full animate-pulse blur-[80px]" />
                   
-                  <div className="flex items-center gap-6 mb-10 relative z-10">
-                    <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center text-royal shadow-2xl relative overflow-hidden group">
+                  <div className="flex items-center gap-6 mb-8 sm:mb-10 relative z-10 pr-10">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center text-royal shadow-2xl relative overflow-hidden group">
                       <div className="absolute inset-0 bg-royal opacity-0 group-hover:opacity-20 transition-opacity" />
-                      <GraduationCap size={28} />
+                      <GraduationCap size={24} className="sm:w-7 sm:h-7" />
                     </div>
                     <div>
                       <p className="text-royal font-black uppercase tracking-[0.4em] text-[10px] mb-1 leading-none opacity-60">Admission Desk</p>
-                      <h3 className="text-2xl font-black text-white tracking-tighter uppercase leading-none">Inquiry Form</h3>
+                      <h3 className="text-xl sm:text-2xl font-black text-white tracking-tighter uppercase leading-none">Inquiry Form</h3>
                     </div>
                   </div>
 
@@ -160,29 +162,30 @@ const AdmissionModal: FC<AdmissionModalProps> = ({ isOpen, onClose }) => {
                       </div>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-end">
-                      <div className="space-y-2">
-                        <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-100/20 ml-2">Seeking Class *</label>
-                        <div className="relative group">
-                          <Star size={16} className="absolute left-5 top-1/2 -translate-y-1/2 text-blue-100/20 group-focus-within:text-royal transition-colors pointer-events-none" />
-                          <select name="grade" required className="w-full bg-white/5 border border-white/5 rounded-xl pl-12 pr-10 py-4 focus:outline-none focus:border-royal focus:bg-white/10 transition-all text-white text-base md:text-lg appearance-none bg-navy cursor-pointer uppercase tracking-widest leading-none">
-                            <option value="">Grade</option>
-                            <option value="Nursery">Nursery</option>
-                            <option value="LKG">LKG</option>
-                            <option value="UKG">UKG</option>
-                            <option value="Class 1">Class 1</option>
-                            <option value="Class 2">Class 2</option>
-                            <option value="Class 3">Class 3</option>
-                            <option value="Class 4">Class 4</option>
-                            <option value="Class 5">Class 5</option>
-                            <option value="Class 6">Class 6</option>
-                            <option value="Class 7">Class 7</option>
-                            <option value="Class 8">Class 8</option>
-                            <option value="Class 9">Class 9</option>
-                            <option value="Class 10">Class 10</option>
-                            <option value="Class 11">Class 11</option>
-                            <option value="Class 12">Class 12</option>
-                          </select>
+                      <div className="space-y-4 md:col-span-2">
+                        <label className="text-[10px] font-bold uppercase tracking-[0.4em] text-blue-100/20 ml-2">Seeking Class *</label>
+                        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
+                          {['Nursery', 'LKG', 'UKG', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'].map((grade) => {
+                            const isSelected = selectedGrade === grade;
+                            const fullGrade = isNaN(Number(grade)) ? grade : `Class ${grade}`;
+                            return (
+                              <button
+                                key={grade}
+                                type="button"
+                                onClick={() => setSelectedGrade(grade)}
+                                className={cn(
+                                  "py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all border",
+                                  isSelected 
+                                    ? "bg-royal border-royal text-primary shadow-[0_10px_20px_rgba(37,99,235,0.3)]" 
+                                    : "bg-white/5 border-white/5 text-white/40 hover:border-white/20 hover:bg-white/10"
+                                )}
+                              >
+                                {grade}
+                              </button>
+                            );
+                          })}
                         </div>
+                        <input type="hidden" name="grade" value={selectedGrade} required />
                       </div>
                       <div className="space-y-2">
                         <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-100/20 ml-2">Documents (Optional)</label>

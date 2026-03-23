@@ -58,7 +58,7 @@ app.post('/api/email', async (req, res) => {
     } = req.body;
 
     // All data to admin email
-    const adminEmail = 'divyanshucmd@gmail.com';
+    const adminEmail = process.env.ADMIN_EMAIL || 'divyanshucmd@gmail.com';
     const subject = `New ${formType} Submission from Adarsh School Website`;
     
     const htmlContent = `
@@ -77,6 +77,7 @@ app.post('/api/email', async (req, res) => {
     const mailOptions: any = {
       from: process.env.EMAIL_USER,
       to: adminEmail,
+      replyTo: formData.email || undefined,
       subject,
       html: htmlContent,
     };

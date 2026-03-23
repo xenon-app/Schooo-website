@@ -12,10 +12,39 @@ import Campus from './pages/Campus';
 import Faculty from './pages/Faculty';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
+import { LoadingScreen } from './components/LoadingScreen';
+import { useState, useEffect } from 'react';
+import { AnimatePresence } from 'framer-motion';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Minimum loading time for a premium feel
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2800);
+
+    // Also wait for window load event
+    const handleLoad = () => {
+      // If load is fast, the timer still holds for 2.8s
+      // If load is slow, we wait for this too? 
+      // Actually 2.8s is usually enough for these assets.
+    };
+
+    window.addEventListener('load', handleLoad);
+    return () => {
+      window.removeEventListener('load', handleLoad);
+      clearTimeout(timer);
+    };
+  }, []);
+
   return (
     <Router>
+      <AnimatePresence mode="wait">
+        {isLoading && <LoadingScreen key="loader" />}
+      </AnimatePresence>
+
       <ScrollToTop />
       <div className="flex flex-col min-h-screen">
         <Header />
@@ -31,7 +60,7 @@ function App() {
             <Route path="/student-council" element={<Navigate to="/contact" replace />} />
             
             {/* Academics Group */}
-<Route path="/academics" element={<Academics />} />
+            <Route path="/academics" element={<Academics />} />
             <Route path="/academic" element={<Academics />} />
             <Route path="/courses" element={<Navigate to="/academics" replace />} />
             <Route path="/curriculum" element={<Navigate to="/academics" replace />} />

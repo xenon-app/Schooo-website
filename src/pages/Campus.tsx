@@ -19,7 +19,7 @@ const Campus = () => {
   return (
     <div className="min-h-screen bg-navy text-white pt-[100px]">
       {/* Page Hero */}
-      <section className="relative h-[65vh] flex items-center overflow-hidden bg-navy">
+      <section className="relative h-[50vh] sm:h-[65vh] flex items-center overflow-hidden bg-navy">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=2071&auto=format&fit=crop" 
@@ -37,12 +37,12 @@ const Campus = () => {
             transition={{ duration: 0.8 }}
             className="max-w-4xl"
           >
-            <p className="text-xs font-bold uppercase tracking-[0.3em] text-royal mb-4">Space and Matter</p>
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-[1.1] uppercase">
+            <p className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em] text-royal mb-4">Space and Matter</p>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-[1.1] uppercase">
               The <br />
               <span className="text-royal underline decoration-4 decoration-royal/10 tracking-tight self-start">Campus</span>
             </h1>
-            <p className="text-lg md:text-xl text-blue-100/40 font-normal leading-[1.6] max-w-3xl mt-10 border-l-4 border-royal/20 pl-6">
+            <p className="text-base sm:text-lg md:text-xl text-blue-100/40 font-normal leading-[1.6] max-w-3xl mt-10 border-l-4 border-royal/20 pl-6">
                 Redefining the standard of physical learning spaces in rural education.
             </p>
           </motion.div>
@@ -50,7 +50,7 @@ const Campus = () => {
       </section>
 
       {/* 1. CAMPUS LIFE SECTION */}
-      <section id="life" className="py-32 bg-navy border-t border-white/5">
+      <section id="life" className="py-24 sm:py-32 bg-navy border-t border-white/5">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-24 items-center">
             <motion.div 
@@ -60,9 +60,9 @@ const Campus = () => {
               className="space-y-16"
             >
               <div>
-                 <p className="text-royal font-bold uppercase tracking-[0.3em] text-xs mb-4">Student Experience</p>
-                 <h2 className="text-4xl md:text-5xl font-bold text-white mb-10 tracking-tight leading-[1.1] uppercase self-start">Campus <br /><span className="text-royal underline decoration-4 decoration-royal/10">Life</span></h2>
-                 <p className="text-lg text-blue-100/40 font-normal leading-[1.6] border-l-4 border-royal/10 pl-6">
+                 <p className="text-royal font-bold uppercase tracking-[0.3em] text-[10px] sm:text-xs mb-4">Student Experience</p>
+                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-10 tracking-tight leading-[1.1] uppercase self-start">Campus <br /><span className="text-royal underline decoration-4 decoration-royal/10">Life</span></h2>
+                 <p className="text-base sm:text-lg text-blue-100/40 font-normal leading-[1.6] border-l-4 border-royal/10 pl-6">
                     "A thriving community where academic excellence meets personal development, creativity, and lifelong friendships."
                  </p>
               </div>
@@ -137,16 +137,16 @@ const Campus = () => {
                 <table className="w-full text-left border-collapse">
                   <thead>
                     <tr className="bg-white/5 border-b border-white/5">
-                      <th className="px-16 py-12 font-black uppercase tracking-[0.4em] text-sm text-royal">Information Pillar</th>
-                      <th className="px-16 py-12 font-black uppercase tracking-[0.4em] text-sm text-royal text-right">Specific Audit Data</th>
+                      <th className="px-8 sm:px-16 py-8 sm:py-12 font-black uppercase tracking-[0.4em] text-[10px] sm:text-sm text-royal">Information Pillar</th>
+                      <th className="px-8 sm:px-16 py-8 sm:py-12 font-black uppercase tracking-[0.4em] text-[10px] sm:text-sm text-royal text-right">Specific Audit Data</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-white/5">
                     {siteConfig.infrastructure.map((row, idx) => (
                       <tr key={idx} className="hover:bg-royal/5 transition-all group/row">
-                        <td className="px-16 py-10 font-black text-2xl text-white tracking-tighter uppercase leading-none opacity-40 group-hover/row:opacity-100 transition-opacity">{row.info}</td>
-                        <td className="px-16 py-10 text-right">
-                             <span className="inline-flex h-12 items-center px-10 bg-white/5 rounded-full text-white/50 font-black text-sm group-hover/row:bg-royal group-hover/row:text-white transition-all tabular-nums uppercase tracking-widest leading-none">
+                        <td className="px-8 sm:px-16 py-8 sm:py-10 font-black text-lg sm:text-2xl text-white tracking-tighter uppercase leading-none opacity-40 group-hover/row:opacity-100 transition-opacity">{row.info}</td>
+                        <td className="px-8 sm:px-16 py-8 sm:py-10 text-right">
+                             <span className="inline-flex h-10 sm:h-12 items-center px-6 sm:px-10 bg-white/5 rounded-full text-white/50 font-black text-[10px] sm:text-sm group-hover/row:bg-royal group-hover/row:text-white transition-all tabular-nums uppercase tracking-widest leading-none whitespace-nowrap">
                                {row.detail}
                              </span>
                         </td>
@@ -170,7 +170,7 @@ const Campus = () => {
                 <p className="text-blue-100/40 text-lg font-medium uppercase tracking-[0.2em] leading-relaxed">"High-precision tour of our facilities and life."</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:h-[1200px]">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6 md:h-[1200px]">
               {siteConfig.gallery.map((img, idx) => {
                 const spans = [
                   "md:col-span-8 md:row-span-2",
@@ -251,11 +251,11 @@ const Campus = () => {
           <motion.div 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="bg-navy rounded-[6rem] p-20 md:p-32 border border-white/5 relative overflow-hidden text-center"
+            className="bg-navy rounded-[3rem] sm:rounded-[6rem] p-10 sm:p-20 md:p-32 border border-white/5 relative overflow-hidden text-center"
           >
             <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-royal opacity-[0.05] rounded-full blur-[180px]" />
-             <p className="text-royal font-bold uppercase tracking-[0.3em] text-xs mb-8">Full Institutional Reveal</p>
-             <h2 className="text-6xl md:text-9xl font-bold text-white mb-16 tracking-tighter leading-[0.8] uppercase">The <br /><span className="text-royal transition-all duration-1000 hover:tracking-widest cursor-default">Future</span> <br /> Ground</h2>
+             <p className="text-royal font-bold uppercase tracking-[0.3em] text-[10px] sm:text-xs mb-8">Full Institutional Reveal</p>
+             <h2 className="text-3xl sm:text-6xl md:text-9xl font-bold text-white mb-12 sm:mb-16 tracking-tighter leading-[0.8] uppercase">The <br /><span className="text-royal transition-all duration-1000 hover:tracking-widest cursor-default">Future</span> <br /> Ground</h2>
              <div className="grid md:grid-cols-3 gap-16 mt-24">
                 {[
                   { label: "Digital Saturation", val: "100%", desc: "Smart classroom penetration" },

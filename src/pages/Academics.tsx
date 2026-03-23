@@ -14,7 +14,7 @@ const Academics = () => {
   return (
     <div className="min-h-screen bg-navy pt-[100px] text-white">
       {/* Page Hero */}
-      <section className="relative h-[80vh] flex flex-col justify-center overflow-hidden bg-navy">
+      <section className="relative h-[60vh] sm:h-[80vh] flex flex-col justify-center overflow-hidden bg-navy">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=2071&auto=format&fit=crop" 
@@ -33,12 +33,12 @@ const Academics = () => {
             transition={{ duration: 0.8 }}
             className="max-w-4xl"
           >
-            <p className="text-royal font-bold uppercase tracking-[0.3em] text-xs mb-4">Mind in Motion</p>
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-[1.1] uppercase">
+            <p className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em] text-royal mb-4">Mind in Motion</p>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-[1.1] uppercase">
               The <br />
               <span className="text-royal underline decoration-4 decoration-royal/10 tracking-tight self-start">Academics</span>
             </h1>
-            <p className="text-lg md:text-xl text-blue-100/40 font-normal leading-[1.6] max-w-2xl mt-10 border-l-4 border-royal/20 pl-6">
+            <p className="text-base sm:text-lg md:text-xl text-blue-100/40 font-normal leading-[1.6] max-w-2xl mt-10 border-l-4 border-royal/20 pl-6">
                 Redefining the standard of holistic learning in the 21st century.
             </p>
           </motion.div>
@@ -46,7 +46,7 @@ const Academics = () => {
       </section>
 
       {/* 1. CURRICULUM SECTION */}
-      <section id="curriculum" className="py-32 bg-navy border-t border-white/5">
+      <section id="curriculum" className="py-24 sm:py-32 bg-navy border-t border-white/5">
         <div className="container mx-auto px-6">
           <div className="space-y-24">
             <div className="grid lg:grid-cols-2 gap-20 items-center">
@@ -55,14 +55,14 @@ const Academics = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
               >
-                <p className="text-royal font-bold uppercase tracking-[0.3em] text-xs mb-4">Core Pedagogy</p>
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-10 tracking-tight leading-[1.1] uppercase">Future <br /><span className="text-royal underline decoration-4 decoration-royal/10">Curriculum</span></h2>
-                <p className="text-lg text-blue-100/40 font-normal leading-[1.6] border-l-4 border-royal/10 pl-6 mb-16">
+                <p className="text-royal font-bold uppercase tracking-[0.3em] text-[10px] sm:text-xs mb-4">Core Pedagogy</p>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-10 tracking-tight leading-[1.1] uppercase">Future <br /><span className="text-royal underline decoration-4 decoration-royal/10">Curriculum</span></h2>
+                <p className="text-base sm:text-lg text-blue-100/40 font-normal leading-[1.6] border-l-4 border-royal/10 pl-6 mb-16">
                   "Our curriculum is designed to challenge the intellect and ignite the curiosities of every learner."
                 </p>
-                <div className="grid grid-cols-2 gap-8">
-                  {siteConfig.learningPillars.map((pillar, idx) => (
-                    <div key={idx} className="flex flex-col gap-4 p-10 bg-white/5 border border-white/5 rounded-[3rem] group hover:bg-white/10 transition-all border-b-8 border-b-royal">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+                    {siteConfig.learningPillars.map((pillar, idx) => (
+                      <div key={idx} className="flex flex-col gap-4 p-8 sm:p-10 bg-white/5 border border-white/5 rounded-[2.5rem] sm:rounded-[3rem] group hover:bg-white/10 transition-all border-b-8 border-b-royal">
                         <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-royal border border-white/10 group-hover:scale-110 transition-transform">
                             <Sparkles size={24} />
                         </div>
@@ -105,11 +105,11 @@ const Academics = () => {
       </section>
 
       {/* 2. ACADEMIC CALENDAR SECTION */}
-      <section id="calendar" className="py-32 bg-[#030712]">
+      <section id="calendar" className="py-24 sm:py-32 bg-[#030712]">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-4xl mx-auto mb-20">
-              <p className="text-royal font-bold uppercase tracking-[0.3em] text-xs mb-4">Chronology of Growth</p>
-              <h2 className="text-5xl md:text-6xl font-bold text-white mb-10 tracking-tight leading-[1.1] uppercase">Academic <br /><span className="text-royal">Calendar</span></h2>
+              <p className="text-royal font-bold uppercase tracking-[0.3em] text-[10px] sm:text-xs mb-4">Chronology of Growth</p>
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-10 tracking-tight leading-[1.1] uppercase">Academic <br /><span className="text-royal">Calendar</span></h2>
               <p className="text-blue-100/40 text-lg font-medium uppercase tracking-[0.2em] leading-relaxed">Session {siteConfig.school.admissionYear} Roadmap</p>
           </div>
           
@@ -134,11 +134,11 @@ const Academics = () => {
       </section>
 
       {/* 3. RULES & REGULATIONS SECTION */}
-      <section id="rules" className="py-32 bg-navy">
+      <section id="rules" className="py-24 sm:py-32 bg-navy">
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mb-24">
-              <p className="text-royal font-bold uppercase tracking-[0.3em] text-xs mb-4">Conduct & Ethics</p>
-              <h2 className="text-5xl md:text-6xl font-bold text-white mb-12 tracking-tight leading-[1.1] uppercase">Rules & <br /><span className="text-royal underline decoration-4 decoration-royal/10">Regulations</span></h2>
+              <p className="text-royal font-bold uppercase tracking-[0.3em] text-[10px] sm:text-xs mb-4">Conduct & Ethics</p>
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-12 tracking-tight leading-[1.1] uppercase">Rules & <br /><span className="text-royal underline decoration-4 decoration-royal/10">Regulations</span></h2>
               <p className="text-lg text-blue-100/40 font-normal uppercase tracking-[0.2em] border-l-4 border-royal/10 pl-6 max-w-2xl">"Discipline is the bridge between goals and accomplishment."</p>
           </div>
 
@@ -165,10 +165,10 @@ const Academics = () => {
                        <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-royal border border-white/10 mb-10 group-hover:rotate-12 transition-transform">
                           <AlertCircle size={28} />
                        </div>
-                       <h4 className="text-3xl font-black text-white mb-10 uppercase tracking-tighter">{cat.title}</h4>
-                       <ul className="space-y-6 px-4">
+                       <h4 className="text-2xl sm:text-3xl font-black text-white mb-10 uppercase tracking-tighter">{cat.title}</h4>
+                       <ul className="space-y-6 px-2 sm:px-4">
                           {cat.rules.map((rule, idx) => (
-                              <li key={idx} className="flex gap-4 text-blue-100/40 font-medium text-lg border-b border-white/5 pb-4 last:border-0">
+                              <li key={idx} className="flex gap-4 text-blue-100/40 font-medium text-base sm:text-lg border-b border-white/5 pb-4 last:border-0">
                                   <CheckCircle2 size={24} className="text-royal shrink-0" />
                                   {rule}
                               </li>
