@@ -22,18 +22,22 @@ app.use(express.urlencoded({ extended: true }));
 // Serve static frontend in production
 app.use(express.static(path.join(__dirname, '../dist')));
 
-// Email transporter (Gmail) - Explicit config for better compatibility on Railway
+// Email transporter (Gmail) - Hardened config for Railway/Cloud environments
 const transporter = nodemailer.createTransport({
+  service: 'gmail',
   host: 'smtp.gmail.com',
-  port: 587,
-  secure: false, // upgrade later with STARTTLS
+  port: 465,
+  secure: true, // use SSL
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
-  pool: true, // reuse connections
-  maxConnections: 5,
-  maxMessages: 100,
+  pool: true,
+  maxConnections: 3,
+  maxMessages: 50,
+  connectionTimeout: 10000, // 10 seconds
+  greetingTimeout: 5000,
+  socketTimeout: 15000,
 });
 
 // Root path to test easily
