@@ -107,19 +107,18 @@ app.post('/api/email', async (req, res) => {
       });
     }
 
-    try {
-      await transporter.sendMail(mailOptions);
-      console.log(`Email successfully sent: ${subject}`);
-      res.json({ success: true, message: 'Inquiry successfully submitted' });
-    } catch (smtpError: any) {
-      console.error('SMTP Error:', smtpError);
-      res.status(500).json({ 
-        success: false, 
-        message: 'SMTP Failure: ' + (smtpError.message || 'Check your Gmail App Password and variables.')
-      });
-    }
+    // Dispatch email in the background to provide instant UI feedback
+    transporter.sendMail(mailOptions)
+      .then(() => console.log(`Inquiry email successfully sent: ${subject}`))
+      .catch((smtpError: any) => console.error('Background SMTP Error:', smtpError));
+
+    // Return success immediately to avoid "Processing..." delays
+    res.json({ 
+      success: true, 
+      message: 'Inquiry received and being processed' 
+    });
   } catch (error: any) {
-    console.error('Internal server error:', error);
+    console.error('Submission processing error:', error);
     res.status(500).json({ success: false, message: 'Internal Server Error' });
   }
 });
