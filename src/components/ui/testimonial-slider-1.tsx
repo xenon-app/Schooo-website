@@ -147,9 +147,21 @@ export const TestimonialSlider = ({
                   {activeReview.affiliation}
                 </p>
                 
-                <blockquote className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-medium leading-[1.3] text-blue-100/60 border-l-4 sm:border-l-8 border-royal/20 pl-6 sm:pl-10 italic py-2">
+                <blockquote className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium leading-[1.3] text-blue-100/60 border-l-4 sm:border-l-8 border-royal/20 pl-6 sm:pl-10 italic py-2 mt-8">
                   "{activeReview.quote}"
                 </blockquote>
+
+                <div className="mt-12">
+                   <a 
+                    href="https://en.wikipedia.org/wiki/Adarsh_Public_School" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="group/link inline-flex items-center gap-4 px-8 py-4 bg-white/5 border border-white/10 rounded-full hover:bg-royal transition-all"
+                   >
+                     <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white">Full Story</span>
+                     <ArrowRight size={14} className="group-hover/link:translate-x-2 transition-transform text-royal group-hover/link:text-white" />
+                   </a>
+                </div>
               </motion.div>
             </AnimatePresence>
           </div>

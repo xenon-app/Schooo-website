@@ -23,11 +23,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../dist')));
 
 // Email transporter (Gmail) - Hardened config for Railway/Cloud environments
+console.log('--- Initializing SMTP Transporter ---');
+console.log('EMAIL_USER exists:', !!process.env.EMAIL_USER);
+console.log('EMAIL_PASS exists:', !!process.env.EMAIL_PASS);
+
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: true, // use SSL
+  service: 'gmail', // Let nodemailer handle smtp.gmail.com settings
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
@@ -35,9 +36,12 @@ const transporter = nodemailer.createTransport({
   pool: true,
   maxConnections: 3,
   maxMessages: 50,
-  connectionTimeout: 10000, // 10 seconds
-  greetingTimeout: 5000,
-  socketTimeout: 15000,
+  connectionTimeout: 20000, // 20 seconds
+  greetingTimeout: 15000,
+  socketTimeout: 30000,
+  tls: {
+    rejectUnauthorized: false // Bypass some cloud certificate issues
+  }
 });
 
 // Root path to test easily
