@@ -139,7 +139,7 @@ const Footer = () => {
            
            <div className="w-full flex flex-col md:flex-row justify-between items-center gap-10 mt-20 pt-12 border-t border-white/5">
                <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8">
-                <p className="text-[10px] sm:text-xs font-bold text-blue-100/20 uppercase tracking-[0.4em]">© {currentYear} Adarsh Public School</p>
+                <p className="text-[10px] sm:text-xs font-bold text-blue-100/20 uppercase tracking-[0.4em]">© {currentYear} Adarsh Public School | Created By Divyanshu Kumar</p>
                 <div className="h-4 w-px bg-white/5 hidden sm:block" />
                 <div className="flex items-center gap-4 sm:gap-8">
                   <Link to="/academics" className="text-[10px] sm:text-xs font-bold text-blue-100/20 hover:text-royal uppercase tracking-widest transition-colors">Privacy Policy</Link>
