@@ -25,7 +25,7 @@ const BLOG_CONTENT = {
       
       <h3>1. Holistic CBSE Curriculum</h3>
       <p>As the premier <strong>CBSE school in Murliganj</strong>, our curriculum doesn't just focus on rote learning. We integrate modern pedagogical techniques that encourage critical thinking. Our students consistently achieve 100% board results, a testament to our dedicated faculty.</p>
-
+      
       <h3>2. Infrastructure That Inspires</h3>
       <p>We believe that environment dictates the quality of learning. From our high-speed satellite-enabled labs to our lush green sports grounds, every corner of APS is designed to nurture the mind and body. This makes us the top choice for parents seeking an <strong>english medium school in Murliganj</strong>.</p>
       
@@ -46,7 +46,7 @@ const BLOG_CONTENT = {
       
       <h3>Key Dates & Deadlines</h3>
       <p>Admissions for Play Group to Class 12 are currently open. We recommend early registration to avoid the last-minute rush, as we maintain a strict student-to-teacher ratio for quality assurance.</p>
-
+      
       <h3>Required Documentation</h3>
       <p>To ensure a smooth process, please have the following ready:</p>
       <ul>
@@ -55,7 +55,7 @@ const BLOG_CONTENT = {
         <li>Passport-sized photographs.</li>
         <li>Aadhar card of parents and student.</li>
       </ul>
-
+      
       <h3>The Evaluation Process</h3>
       <p>Admission is based on a merit-based evaluation and a personal interaction. Our goal is to understand each child's unique potential rather than just their academic history.</p>
     `
@@ -73,7 +73,7 @@ const BLOG_CONTENT = {
       
       <h3>Visualizing Complex Concepts</h3>
       <p>Our multimedia-equipped classrooms allow students to visualize abstract scientific theories and historical events. This interactive approach significantly improves retention and interest compared to traditional chalkboard methods.</p>
-
+      
       <h3>STEM and Innovation Labs</h3>
       <p>Beyond classrooms, our <strong>computer lab in Murliganj</strong> campus provides hands-on coding and robotics training, preparing our students for global careers from a local foundation.</p>
     `
@@ -91,7 +91,7 @@ const BLOG_CONTENT = {
       
       <h3>Professional Coaching</h3>
       <p>With 25+ years of excellence, we have developed one of the finest sports infrastructures in Madhepura district. Our students receive professional training in Cricket, Football, Volleyball, and Athletics.</p>
-
+      
       <h3>The Team Spirit</h3>
       <p>Sports at APS aren't just about winning medals; they're about learning teamwork, resilience, and the humility of victory and defeat. These are the qualities that build true leaders.</p>
     `
@@ -109,7 +109,7 @@ const BLOG_CONTENT = {
       
       <h3>Merit-Based Awards</h3>
       <p>We offer up to 100% tuition fee waivers for students who demonstrate exceptional academic or athletic prowess. Our annual entrance exam determines eligibility for these prestigious awards.</p>
-
+      
       <h3>Empowering Local Communities</h3>
       <p>Our focus remains on the local residents of Murliganj, empowering the next generation of Bihar's leaders with world-class education at an accessible foundation.</p>
     `
@@ -173,7 +173,7 @@ const BlogPost = () => {
              animate={{ opacity: 1, y: 0 }}
              className="relative aspect-[21/9] w-full rounded-[4.5rem] overflow-hidden border-8 border-white/5 shadow-2xl skew-x-1"
            >
-              <img src={post.image} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000" />
+              <img src={post.image} className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105" />
               <div className="absolute inset-x-0 bottom-0 p-12 bg-gradient-to-t from-navy to-transparent">
                   <p className="text-white/20 font-black uppercase tracking-[0.5em] text-xs">Adarsh Public School Murliganj · Official Feed</p>
               </div>
