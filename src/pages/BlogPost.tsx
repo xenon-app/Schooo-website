@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
   ArrowLeft, 
   Calendar, 
@@ -10,7 +10,6 @@ import {
   Sparkles,
   Award
 } from 'lucide-react';
-import { siteConfig } from '@/config/site';
 
 const BLOG_CONTENT = {
   'best-school-murliganj': {
