@@ -18,17 +18,18 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-navy pt-40 pb-12 overflow-hidden border-t border-white/5">
+    <footer className="relative bg-navy pt-24 sm:pt-40 pb-12 overflow-hidden border-t border-white/5">
       <FooterBackgroundGradient />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 lg:gap-12 pb-32 border-b border-white/5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 md:gap-20 lg:gap-12 pb-20 md:pb-32 border-b border-white/5">
           
           {/* Column 1: School Identity */}
           <div className="space-y-12">
             <Link to="/" className="flex items-center gap-4 group">
               <div className="w-16 h-16 bg-white/5 backdrop-blur-2xl rounded-2xl flex items-center justify-center text-royal border border-white/10 group-hover:border-royal/50 transition-all shadow-2xl">
-                <GraduationCap size={36} className="group-hover:scale-110 transition-transform" />
+                <GraduationCap size={28} className="group-hover:scale-110 transition-transform md:hidden" />
+                <GraduationCap size={36} className="group-hover:scale-110 transition-transform hidden md:block" />
               </div>
               <div>
                 <h2 className="text-xl font-bold text-white tracking-widest leading-none uppercase">
@@ -64,7 +65,7 @@ const Footer = () => {
 
           {/* Column 2: Navigation */}
           <div>
-            <h4 className="text-royal font-bold uppercase tracking-[0.4em] text-[10px] mb-12 opacity-60">Global Portals</h4>
+            <h4 className="text-royal font-bold uppercase tracking-[0.4em] text-[10px] mb-8 md:mb-12 opacity-60">Global Portals</h4>
             <ul className="space-y-6">
               {[
                 { name: 'About Adarsh', path: '/about' },
@@ -89,7 +90,7 @@ const Footer = () => {
 
           {/* Column 3: Contacts */}
           <div className="space-y-12">
-            <h4 className="text-royal font-bold uppercase tracking-[0.4em] text-[10px] mb-12 opacity-60">Reach Us</h4>
+            <h4 className="text-royal font-bold uppercase tracking-[0.4em] text-[10px] mb-8 md:mb-12 opacity-60">Reach Us</h4>
             <div className="space-y-10">
               <div className="flex gap-6 group">
                 <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-royal border border-white/5 group-hover:bg-royal group-hover:text-white transition-all">
@@ -116,7 +117,7 @@ const Footer = () => {
 
           {/* Column 4: Newsletter/Updates */}
           <div className="space-y-12">
-             <h4 className="text-royal font-bold uppercase tracking-[0.4em] text-[10px] mb-12 opacity-60">Admission Help</h4>
+             <h4 className="text-royal font-bold uppercase tracking-[0.4em] text-[10px] mb-8 md:mb-12 opacity-60">Admission Help</h4>
              <div className="p-10 bg-white/5 rounded-[3rem] border border-white/5 relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-24 h-24 bg-royal/10 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity" />
                 <p className="text-white text-lg font-bold uppercase tracking-tighter mb-6 leading-none">Need Support?</p>
@@ -133,15 +134,17 @@ const Footer = () => {
         {/* Big Hover Brand Text */}
         <div className="py-20 flex flex-col items-center">
            <div className="w-full max-w-6xl">
-              <TextHoverEffect text="ADARSH" className="h-40 md:h-80" />
+              <TextHoverEffect text="ADARSH" className="h-24 sm:h-40 md:h-80" />
            </div>
            
            <div className="w-full flex flex-col md:flex-row justify-between items-center gap-10 mt-20 pt-12 border-t border-white/5">
-              <div className="flex items-center gap-8">
-                <p className="text-xs font-bold text-blue-100/20 uppercase tracking-[0.4em]">© {currentYear} Adarsh Public School</p>
-                <div className="h-4 w-px bg-white/5 hidden md:block" />
-                <Link to="/academics" className="text-xs font-bold text-blue-100/20 hover:text-royal uppercase tracking-widest transition-colors">Privacy Policy</Link>
-                <Link to="/academics" className="text-xs font-bold text-blue-100/20 hover:text-royal uppercase tracking-widest transition-colors">Disclaimer</Link>
+               <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8">
+                <p className="text-[10px] sm:text-xs font-bold text-blue-100/20 uppercase tracking-[0.4em]">© {currentYear} Adarsh Public School</p>
+                <div className="h-4 w-px bg-white/5 hidden sm:block" />
+                <div className="flex items-center gap-4 sm:gap-8">
+                  <Link to="/academics" className="text-[10px] sm:text-xs font-bold text-blue-100/20 hover:text-royal uppercase tracking-widest transition-colors">Privacy Policy</Link>
+                  <Link to="/academics" className="text-[10px] sm:text-xs font-bold text-blue-100/20 hover:text-royal uppercase tracking-widest transition-colors">Disclaimer</Link>
+                </div>
               </div>
               <div className="flex items-center gap-4">
                  <p className="text-[10px] font-bold text-blue-100/10 uppercase tracking-[0.5em] flex items-center gap-2">

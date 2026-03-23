@@ -56,7 +56,7 @@ const Home = () => {
       />
 
       {/* About Section - APS Legacy */}
-      <section className="py-40 bg-navy relative overflow-hidden">
+      <section className="py-24 sm:py-40 bg-navy relative overflow-hidden">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-24 items-center">
             <motion.div
@@ -114,7 +114,7 @@ const Home = () => {
       </section>
 
       {/* Statistics Section */}
-      <section className="bg-navy py-40 relative">
+      <section className="bg-navy py-24 sm:py-40 relative">
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
             {siteConfig.stats.map((stat, i) => {
@@ -141,7 +141,7 @@ const Home = () => {
       </section>
 
       {/* World Class Facilities Section */}
-      <section className="py-40 bg-navy relative overflow-hidden">
+      <section className="py-24 sm:py-40 bg-navy relative overflow-hidden">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-32 items-center">
             <motion.div
@@ -190,7 +190,7 @@ const Home = () => {
 
       {/* ── NEW: Interactive Gallery (Image Trail) ── */}
       <section
-        className="py-60 bg-navy relative overflow-hidden flex flex-col items-center justify-center min-h-screen"
+        className="py-32 sm:py-60 bg-navy relative overflow-hidden flex flex-col items-center justify-center min-h-[60vh] md:min-h-screen"
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         ref={galleryRef as any}
       >
@@ -205,9 +205,9 @@ const Home = () => {
           </ImageTrail>
         </div>
 
-        <div className="relative z-10 text-center pointer-events-none">
-          <p className="text-royal font-bold uppercase tracking-[0.4em] text-sm mb-6">Visual Journey</p>
-          <h2 className="text-7xl md:text-[10rem] font-bold text-white tracking-widest uppercase leading-none opacity-10">
+        <div className="relative z-10 text-center pointer-events-none px-6">
+          <p className="text-royal font-bold uppercase tracking-[0.4em] text-[10px] sm:text-sm mb-6">Visual Journey</p>
+          <h2 className="text-5xl sm:text-7xl md:text-[10rem] font-bold text-white tracking-widest uppercase leading-none opacity-10">
             Our <br /><span className="text-royal">Memories</span>
           </h2>
           <div className="mt-20 flex items-center justify-center gap-4">

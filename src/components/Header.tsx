@@ -4,7 +4,9 @@ import { Link, useLocation } from "react-router-dom";
 import { 
   GraduationCap, 
   ArrowRight,
-  ChevronDown
+  ChevronDown,
+  Menu,
+  X
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import AdmissionModal from "./AdmissionModal";
@@ -131,6 +133,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [hoveredTab, setHoveredTab] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Derive active tab from current pathname — checks top-level then sub-items
   const currentPath = location.pathname;
@@ -168,6 +171,11 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
+
   return (
     <motion.header
       initial={{ y: -100 }}
@@ -183,12 +191,13 @@ const Header = () => {
         
         {/* ── LOGO (Left) ── */}
         <Link to="/" className="flex items-center gap-3 group">
-          <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-royal border border-white/10 group-hover:border-royal/50 transition-all shadow-xl">
-            <GraduationCap size={28} className="group-hover:scale-110 transition-transform" />
+          <div className="w-10 h-10 md:w-12 md:h-12 bg-white/5 rounded-2xl flex items-center justify-center text-royal border border-white/10 group-hover:border-royal/50 transition-all shadow-xl">
+            <GraduationCap size={24} className="group-hover:scale-110 transition-transform md:hidden" />
+            <GraduationCap size={28} className="group-hover:scale-110 transition-transform hidden md:block" />
           </div>
-          <div className="hidden md:block">
-            <h2 className="text-xl font-bold text-white tracking-widest leading-none uppercase">
-              Adarsh <br /><span className="text-royal">Public</span> School
+          <div>
+            <h2 className="text-sm md:text-xl font-bold text-white tracking-widest leading-tight uppercase">
+              Adarsh <br className="md:hidden" /><span className="text-royal">Public</span> School
             </h2>
           </div>
         </Link>
@@ -281,16 +290,85 @@ const Header = () => {
         <div className="flex items-center gap-4">
           <button
             onClick={() => setIsModalOpen(true)}
-            className="cursor-pointer group relative px-6 py-2.5 bg-royal rounded-full text-white font-bold uppercase tracking-widest text-[10px] transition-all hover:scale-105 active:scale-95 shadow-[0_15px_30px_rgba(37,99,235,0.2)] overflow-hidden"
+            className="hidden sm:flex cursor-pointer group relative px-6 py-2.5 bg-royal rounded-full text-white font-bold uppercase tracking-widest text-[10px] transition-all hover:scale-105 active:scale-95 shadow-[0_15px_30px_rgba(37,99,235,0.2)] overflow-hidden"
           >
             <span className="relative z-10 flex items-center gap-2">
               Apply Now <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </span>
             <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
           </button>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="lg:hidden w-10 h-10 flex items-center justify-center bg-white/5 border border-white/10 rounded-xl text-white hover:bg-white/10 transition-all"
+          >
+            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
         </div>
 
       </div>
+
+      {/* ── MOBILE MENU (Overlay) ── */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed inset-0 top-[73px] bg-navy/98 backdrop-blur-2xl z-50 lg:hidden overflow-y-auto"
+          >
+            <nav className="p-8 space-y-10">
+              {menu.map((item) => {
+                const hasItems = item.items && item.items.length > 0;
+                return (
+                  <div key={item.title} className="space-y-6">
+                    <div className="flex items-center justify-between">
+                      <Link
+                        to={item.url === "#" ? "#" : item.url}
+                        className="text-2xl font-bold text-white uppercase tracking-tighter hover:text-royal transition-colors"
+                      >
+                        {item.title}
+                      </Link>
+                    </div>
+                    {hasItems && (
+                      <div className="grid grid-cols-1 gap-4 pl-4 border-l border-white/5">
+                        {item.items!.map((sub) => (
+                          <Link
+                            key={sub.title}
+                            to={sub.url}
+                            className="group"
+                          >
+                            <div className="text-sm font-bold text-white/60 group-hover:text-royal transition-colors uppercase tracking-widest">
+                              {sub.title}
+                            </div>
+                            <div className="text-[10px] text-white/20 uppercase tracking-widest mt-1">
+                              {sub.description}
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+              
+              <div className="pt-10 border-t border-white/5">
+                <button
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    setIsModalOpen(true);
+                  }}
+                  className="w-full h-16 bg-royal rounded-2xl text-white font-bold uppercase tracking-[0.2em] text-sm flex items-center justify-center gap-3 shadow-xl shadow-royal/20"
+                >
+                  Apply Now <ArrowRight size={18} />
+                </button>
+              </div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <AdmissionModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </motion.header>

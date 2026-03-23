@@ -63,7 +63,7 @@ const WhyAdarsh = () => {
           >
             <motion.p variants={itemVariants} className="text-royal font-bold uppercase tracking-[0.3em] text-xs mb-6">The Institution of Tomorrow</motion.p>
 
-            <motion.h1 variants={itemVariants} className="text-5xl md:text-6xl font-bold text-white mb-10 tracking-tight leading-[1.1] uppercase flex flex-col items-start">
+            <motion.h1 variants={itemVariants} className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-10 tracking-tight leading-[1.1] uppercase flex flex-col items-start">
               <span className="block">Why</span>
               <span className="text-royal underline decoration-4 decoration-royal/10 tracking-tight relative">
                 Adarsh Public School?
@@ -76,9 +76,9 @@ const WhyAdarsh = () => {
               </span>
             </motion.h1>
 
-            <motion.div variants={itemVariants} className="relative mt-20 max-w-5xl">
-              <Quote size={80} className="absolute -top-12 -left-16 text-white/[0.03] rotate-12" />
-              <p className="text-2xl md:text-5xl text-blue-100/60 font-medium leading-[1.05] tracking-tight border-l-[12px] border-royal/30 pl-16 py-4 bg-white/[0.01] rounded-r-[4rem] backdrop-blur-3xl shadow-2xl">
+            <motion.div variants={itemVariants} className="relative mt-12 sm:mt-20 max-w-5xl">
+              <Quote size={80} className="absolute -top-12 -left-16 text-white/[0.03] rotate-12 hidden sm:block" />
+              <p className="text-xl sm:text-2xl md:text-5xl text-blue-100/60 font-medium leading-[1.1] tracking-tight border-l-4 sm:border-l-[12px] border-royal/30 pl-6 sm:pl-16 py-4 bg-white/[0.01] rounded-[2rem] sm:rounded-r-[4rem] backdrop-blur-3xl shadow-2xl">
                 "A pioneer in student-centric pedagogy in the heart of Bihar. We nurture the next generation of leaders through world-class education, <span className="text-white">holistic development</span>, and strong values."
               </p>
             </motion.div>
@@ -106,7 +106,7 @@ const WhyAdarsh = () => {
       </section>
 
       {/* History & Identity Split */}
-      <section className="py-40 relative">
+      <section className="py-24 sm:py-40 relative">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-32 items-center">
             <motion.div
@@ -166,7 +166,7 @@ const WhyAdarsh = () => {
       </section>
 
       {/* Mission & Vision - The Pillars */}
-      <section className="py-40 relative bg-white/[0.01]">
+      <section className="py-24 sm:py-40 relative bg-white/[0.01]">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16">
             <motion.div
@@ -210,11 +210,11 @@ const WhyAdarsh = () => {
       </section>
 
       {/* Core Values Grid */}
-      <section className="py-40">
+      <section className="py-24 sm:py-40">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-4xl mx-auto mb-32">
             <p className="text-royal font-bold uppercase tracking-[0.3em] text-xs mb-6">The Foundation</p>
-            <h2 className="text-5xl md:text-6xl font-bold text-white mb-8 tracking-tight leading-tight uppercase">Core <br /><span className="text-royal">Values</span></h2>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-8 tracking-tight leading-tight uppercase">Core <br /><span className="text-royal">Values</span></h2>
             <div className="w-16 h-1 bg-royal/20 mx-auto rounded-full" />
           </div>
 
@@ -247,12 +247,12 @@ const WhyAdarsh = () => {
       </section>
 
       {/* Faculty Slider - Strategic Addition */}
-      <section className="py-40 bg-white/[0.01]">
+      <section className="py-24 sm:py-40 bg-white/[0.01]">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-12 mb-20">
             <div className="max-w-4xl">
               <p className="text-royal font-bold uppercase tracking-[0.3em] text-xs mb-4">Academic Guardians</p>
-              <h2 className="text-5xl md:text-6xl font-bold text-white mb-8 tracking-tight leading-tight uppercase">Meet Our <br /><span className="text-royal">Elite Faculty</span></h2>
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-8 tracking-tight leading-tight uppercase">Meet Our <br /><span className="text-royal">Elite Faculty</span></h2>
               <p className="text-lg text-blue-100/40 font-medium uppercase tracking-[0.2em] pl-6 border-l-4 border-royal/10">The architects of future leaders</p>
             </div>
           </div>
@@ -301,15 +301,15 @@ const WhyAdarsh = () => {
       />
 
       {/* Strategic Call to Action */}
-      <section className="py-40 bg-navy relative">
+      <section className="py-24 sm:py-40 bg-navy relative">
         <div className="container mx-auto px-6">
-          <div className="bg-[#030712] border border-white/5 rounded-[6rem] overflow-hidden relative p-12 md:p-32 text-center group">
+          <div className="bg-[#030712] border border-white/5 rounded-[3rem] sm:rounded-[6rem] overflow-hidden relative p-8 sm:p-20 md:p-32 text-center group">
             <div className="absolute inset-0 bg-white/[0.01] bg-[size:40px_40px] opacity-40 group-hover:scale-105 transition-transform duration-[10s]" />
 
             <div className="relative z-10 max-w-4xl mx-auto">
-              <h2 className="text-6xl md:text-9xl font-black text-white mb-12 tracking-tighter leading-[0.8] uppercase flex flex-col">
+              <h2 className="text-4xl sm:text-6xl md:text-9xl font-black text-white mb-12 tracking-tighter leading-[0.8] uppercase flex flex-col">
                 <span>Experience</span>
-                <span className="text-royal italic underline decoration-[15px] decoration-royal/10 tracking-tighter">Excellence</span>
+                <span className="text-royal italic underline decoration-[10px] sm:decoration-[15px] decoration-royal/10 tracking-tighter">Excellence</span>
               </h2>
               <p className="text-blue-100/40 text-xl font-bold uppercase tracking-[0.3em] mb-20 leading-relaxed border-l-4 border-royal/20 pl-8 mx-auto w-fit">
                 Admissions for {siteConfig.school.admissionYear} are now open.
@@ -317,7 +317,7 @@ const WhyAdarsh = () => {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-12">
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="bg-royal text-primary px-24 py-10 rounded-full font-black uppercase tracking-[0.2em] text-2xl hover:bg-cta-hover transition-all shadow-[0_40px_80px_-20px_rgba(37,99,235,0.4)] hover:scale-105 active:scale-95 group/btn"
+                  className="bg-royal text-primary px-12 sm:px-24 py-6 sm:py-10 rounded-full font-black uppercase tracking-[0.2em] text-lg sm:text-2xl hover:bg-cta-hover transition-all shadow-[0_40px_80px_-20px_rgba(37,99,235,0.4)] hover:scale-105 active:scale-95 group/btn"
                 >
                   Apply Now <ArrowUpRight className="inline ml-4 group-hover/btn:translate-x-2 transition-transform" />
                 </button>

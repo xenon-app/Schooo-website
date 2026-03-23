@@ -86,7 +86,7 @@ export const TestimonialSlider = ({
   return (
     <div
       className={cn(
-        "relative w-full min-h-[700px] overflow-hidden bg-navy text-white p-12 md:p-32 border-y border-white/5",
+        "relative w-full min-h-[600px] sm:min-h-[700px] overflow-hidden bg-navy text-white p-8 sm:p-20 md:p-32 border-y border-white/5",
         className
       )}
     >
@@ -110,7 +110,7 @@ export const TestimonialSlider = ({
           </div>
 
           {/* Thumbnail Navigation */}
-          <div className="flex space-x-4 mt-8 md:mt-0">
+          <div className="flex space-x-4 mt-8 md:mt-0 overflow-x-auto no-scrollbar pb-4 md:pb-0 w-full">
             {thumbnailReviews.map((review) => {
               const originalIndex = reviews.findIndex((r) => r.id === review.id);
               return (
@@ -131,7 +131,7 @@ export const TestimonialSlider = ({
         </div>
 
         {/* === Center Column: Main Image === */}
-        <div className="md:col-span-4 relative h-full min-h-[500px] md:min-h-[600px]">
+        <div className="md:col-span-4 relative h-full min-h-[400px] md:min-h-[600px]">
            <Quote size={120} className="absolute -top-16 -left-16 text-white/5 rotate-[-12deg] z-0" />
           <AnimatePresence initial={false} custom={direction}>
             <motion.div
@@ -155,9 +155,9 @@ export const TestimonialSlider = ({
         </div>
 
         {/* === Right Column: Text and Navigation === */}
-        <div className="md:col-span-5 flex flex-col justify-center gap-12 md:pl-16 relative">
+        <div className="md:col-span-5 flex flex-col justify-center gap-8 md:gap-12 md:pl-16 relative">
           {/* Text Content */}
-          <div className="relative overflow-hidden pt-12 md:pt-0 min-h-[350px]">
+          <div className="relative overflow-hidden pt-8 md:pt-0 min-h-[400px] sm:min-h-[350px]">
             <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
                 key={currentIndex}
@@ -179,7 +179,7 @@ export const TestimonialSlider = ({
                     </p>
                 </div>
                 
-                <blockquote className="text-3xl md:text-5xl font-medium leading-[1.1] tracking-tighter text-blue-100/60 border-l-[12px] border-royal/10 pl-12 py-4 italic">
+                <blockquote className="text-2xl sm:text-3xl md:text-5xl font-medium leading-[1.2] sm:leading-[1.1] tracking-tighter text-blue-100/60 border-l-[6px] sm:border-l-[12px] border-royal/10 pl-6 sm:pl-12 py-4 italic">
                   "{activeReview.quote}"
                 </blockquote>
               </motion.div>

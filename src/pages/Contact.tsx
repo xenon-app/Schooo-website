@@ -62,7 +62,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-navy text-white pt-[100px] overflow-hidden">
       {/* Page Hero - High Contrast Midnight */}
-      <section className="relative h-[65vh] flex items-center overflow-hidden bg-navy">
+      <section className="relative h-[50vh] sm:h-[65vh] flex items-center overflow-hidden bg-navy">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?q=80&w=2070&auto=format&fit=crop" 
@@ -81,12 +81,12 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
             className="max-w-4xl"
           >
-            <p className="text-royal font-bold uppercase tracking-[0.3em] text-xs mb-4">Constant Support</p>
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-[1.1] uppercase">
+            <p className="text-royal font-bold uppercase tracking-[0.3em] text-[10px] sm:text-xs mb-4">Constant Support</p>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-[1.1] uppercase">
               Get in <br />
               <span className="text-royal underline decoration-4 decoration-royal/10 self-start">Touch</span>
             </h1>
-            <p className="text-lg md:text-xl text-blue-100/40 font-normal leading-[1.6] max-w-2xl mt-10 border-l-4 border-royal/20 pl-6">
+            <p className="text-base sm:text-lg md:text-xl text-blue-100/40 font-normal leading-[1.6] max-w-2xl mt-10 border-l-4 border-royal/20 pl-6">
                 Explore the future of education with us. Our doors are always open.
             </p>
           </motion.div>
@@ -94,7 +94,7 @@ const Contact = () => {
       </section>
 
       {/* Grid & Form Section */}
-      <section className="py-40">
+      <section className="py-24 sm:py-40">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-24">
             
@@ -105,14 +105,14 @@ const Contact = () => {
               className="space-y-24"
             >
               <div>
-                <p className="text-royal font-bold uppercase tracking-[0.3em] text-xs mb-4">The Campus</p>
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-10 tracking-tight leading-[1.1] uppercase">Visit Our <br />Excellence</h2>
-                <p className="text-lg text-blue-100/40 font-normal leading-[1.6] max-w-md border-l-4 border-royal/10 pl-6">
+                <p className="text-royal font-bold uppercase tracking-[0.3em] text-[10px] sm:text-xs mb-4">The Campus</p>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-10 tracking-tight leading-[1.1] uppercase">Visit Our <br />Excellence</h2>
+                <p className="text-base sm:text-lg text-blue-100/40 font-normal leading-[1.6] max-w-md border-l-4 border-royal/10 pl-6">
                   "Experience our vibrant learning environment firsthand. Admissions open for current session."
                 </p>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10">
                 {[
                   { icon: MapPin, title: 'Location', desc: siteConfig.contact.address },
                   { icon: Phone, title: 'Helpline', desc: siteConfig.contact.phone.join(' · ') },
@@ -146,14 +146,14 @@ const Contact = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="bg-white/[0.03] backdrop-blur-2xl p-12 md:p-24 rounded-[4rem] border border-white/10 relative overflow-hidden hover:bg-white/[0.05] transition-all shadow-[0_100px_200px_-40px_rgba(3,7,18,0.8)]"
+              className="bg-white/[0.03] backdrop-blur-2xl p-8 sm:p-12 md:p-24 rounded-[3rem] sm:rounded-[4rem] border border-white/10 relative overflow-hidden hover:bg-white/[0.05] transition-all shadow-[0_100px_200px_-40px_rgba(3,7,18,0.8)]"
             >
               {formStatus === 'success' ? (
                  <div className="text-center py-20">
                     <div className="w-32 h-32 bg-green-500 text-white rounded-[2.5rem] flex items-center justify-center mx-auto mb-12 shadow-2xl shadow-green-500/20 animate-bounce">
                        <CheckCircle size={72} />
                     </div>
-                    <h3 className="text-5xl font-black text-white mb-6 uppercase tracking-tight">Sent!</h3>
+                     <h3 className="text-4xl sm:text-5xl font-black text-white mb-6 uppercase tracking-tight">Sent!</h3>
                     <p className="text-xl text-blue-100/40 font-medium mb-16 max-w-xs mx-auto leading-relaxed italic">
                        "Thank you for reaching out. We respond to inquiries within 24 business hours."
                     </p>
@@ -176,7 +176,7 @@ const Contact = () => {
                       <div className="h-[1px] w-12 bg-royal"></div>
                       <p className="text-royal font-bold uppercase tracking-[0.3em] text-xs">Direct Enquiry</p>
                     </div>
-                    <h3 className="text-5xl font-black text-white mb-16 tracking-tight uppercase leading-[1.1]">
+                     <h3 className="text-3xl sm:text-5xl font-black text-white mb-10 sm:mb-16 tracking-tight uppercase leading-[1.1]">
                       Drop Us <br />
                       <span className="text-transparent bg-clip-text bg-gradient-to-r from-royal to-blue-400">A Line</span>
                     </h3>
@@ -233,15 +233,15 @@ const Contact = () => {
       </section>
 
       {/* Live Map - High Tech Dark Style */}
-      <section className="py-40 relative">
+      <section className="py-24 sm:py-40 relative">
         <div className="container mx-auto px-6 relative z-10">
            <div className="text-center max-w-4xl mx-auto mb-24">
               <p className="text-royal font-bold uppercase tracking-[0.3em] text-xs mb-6">Interactive Map</p>
-              <h3 className="text-5xl md:text-6xl font-bold text-white mb-10 tracking-tight uppercase leading-[1.1]">Find us <span className="text-royal underline decoration-4 decoration-royal/10">Easily</span></h3>
+               <h3 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-10 tracking-tight uppercase leading-[1.1]">Find us <span className="text-royal underline decoration-4 decoration-royal/10">Easily</span></h3>
               <p className="text-blue-100/40 text-lg font-medium uppercase tracking-[0.2em] leading-relaxed">Central Campus · Sitamarhi · Bihar</p>
            </div>
            
-           <div className="w-full h-[700px] rounded-[5rem] overflow-hidden border-[15px] border-white/5 shadow-2xl relative group bg-navy">
+           <div className="w-full h-[400px] sm:h-[700px] rounded-[3rem] sm:rounded-[5rem] overflow-hidden border-8 sm:border-[15px] border-white/5 shadow-2xl relative group bg-navy">
               <iframe 
                 src={siteConfig.contact.mapEmbed} 
                 width="100%" 
@@ -261,19 +261,19 @@ const Contact = () => {
       </section>
 
       {/* Floating Action */}
-      <section className="py-40 bg-white/[0.02] border-t border-white/5">
+      <section className="py-24 sm:py-40 bg-white/[0.02] border-t border-white/5">
          <div className="container mx-auto px-6 text-center">
             <p className="text-royal font-bold uppercase tracking-[0.3em] text-xs mb-10">Instant Help</p>
-            <h3 className="text-5xl md:text-7xl font-bold text-white mb-20 tracking-tight uppercase leading-[1.1]">Need <br />Immediate <br />Assistance?</h3>
+            <h3 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-12 sm:mb-20 tracking-tight uppercase leading-[1.1]">Need <br />Immediate <br />Assistance?</h3>
             <a 
               href={`https://wa.me/${siteConfig.contact.whatsapp}`} 
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-10 bg-[#25D366] text-white px-20 py-10 rounded-full font-black uppercase tracking-widest text-2xl hover:scale-110 transition-all shadow-[0_50px_100px_-20px_rgba(37,211,102,0.4)]"
+              className="group inline-flex flex-col sm:flex-row items-center gap-6 sm:gap-10 bg-[#25D366] text-white px-10 sm:px-20 py-8 sm:py-10 rounded-[2rem] sm:rounded-full font-black uppercase tracking-widest text-xl sm:text-2xl hover:scale-105 sm:hover:scale-110 transition-all shadow-[0_50px_100px_-20px_rgba(37,211,102,0.4)]"
             >
-              <MessageCircle size={48} className="group-hover:rotate-12 transition-transform opacity-30 group-hover:opacity-100" />
+              <MessageCircle size={32} className="group-hover:rotate-12 transition-transform opacity-30 group-hover:opacity-100 sm:w-12 sm:h-12" />
               Chat on WhatsApp
-              <ArrowUpRight size={36} className="opacity-30 group-hover:opacity-100 group-hover:translate-x-2 transition-all" />
+              <ArrowUpRight size={24} className="opacity-30 group-hover:opacity-100 group-hover:translate-x-2 transition-all sm:w-8 sm:h-8" />
             </a>
          </div>
       </section>

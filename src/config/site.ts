@@ -425,21 +425,4 @@ export const siteConfig = {
   ],
 
 
-  // ── 21. WEBCAM HERO SETTINGS ───────────────────────────────
-  webcamGrid: {
-    gridCols: 60,
-    gridRows: 40,
-    maxElevation: 50,
-    motionSensitivity: 0.25,
-    elevationSmoothing: 0.2,
-    colorMode: "webcam" as "webcam" | "monochrome",
-    backgroundColor: "#030303",
-    mirror: true,
-    gapRatio: 0.05,
-    invertColors: false,
-    darken: 0.65,
-    borderColor: "#ffffff",
-    borderOpacity: 0.06,
-  },
-
 };

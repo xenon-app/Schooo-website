@@ -113,7 +113,7 @@ const PremiumHero = ({ onApply, onContact }: PremiumHeroProps) => {
             </motion.div>
 
             {/* Heading */}
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 tracking-tight leading-[1.05] uppercase relative">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-8 tracking-tight leading-[1.05] uppercase relative">
               <span className="block overflow-hidden">
                 <motion.span
                   initial={{ y: "100%" }}
