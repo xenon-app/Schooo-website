@@ -22,13 +22,18 @@ app.use(express.urlencoded({ extended: true }));
 // Serve static frontend in production
 app.use(express.static(path.join(__dirname, '../dist')));
 
-// Email transporter (Gmail)
+// Email transporter (Gmail) - Explicit config for better compatibility on Railway
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false, // upgrade later with STARTTLS
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
+  pool: true, // reuse connections
+  maxConnections: 5,
+  maxMessages: 100,
 });
 
 // Root path to test easily
@@ -126,5 +131,14 @@ app.get('*', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
+  
+  // Verify Transporter on boot
+  transporter.verify((error, success) => {
+    if (error) {
+      console.error('❌ SMTP Connection Error (Check variables/Gmail security):', error);
+    } else if (success) {
+      console.log('✅ SMTP Server reached successfully - Ready to send emails');
+    }
+  });
 });
 
